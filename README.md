@@ -11,6 +11,30 @@
 
 ---
 
+
+## Estrutura
+
+ raiz/
+├── index.html
+├── style.css
+├── script.js
+├── /paginas
+│   ├── pagina1_contexto.html
+│   ├── pagina2_problema.html
+│   ├── pagina3_solucao.html
+│   ├── pagina4_hardware.html
+│   ├── pagina5_algoritmo.html
+│   ├── pagina6_demo.html
+│   └── pagina7_contribuir.html
+├── /img
+│   ├── placeholder1.svg
+│   └── placeholder2.svg
+├── /css
+│   ├── text.css
+│   └── divs.css
+└── /referencias
+    └── referencias.txt
+
 ## 📌 Índice
 
 - [Contexto e Motivação](#contexto-e-motivação)
