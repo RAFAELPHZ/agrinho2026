@@ -11,25 +11,160 @@
     <link rel="stylesheet" href="../css/divs.css">
 </head>
 <body>
-    <div class="header"><div class="header-content"><h1>🌽 SoilSniff</h1><p>Sensor de "Cheiro" do Solo</p></div></div>
-    <div class="container">
-        <div class="nav"><a href="../index.html">← Voltar ao início</a></div>
-        <section class="section">
-            <h2><i class="fas fa-seedling"></i> Contexto e Motivação</h2>
-            <p>Este projeto foi desenvolvido nas <strong>aulas de Educação Digital</strong>, com o objetivo de aplicar conhecimentos tecnológicos para resolver um problema real do nosso município. Utilizamos <strong>Inteligência Artificial (IA)</strong> como ferramenta de apoio durante todo o processo — desde a pesquisa inicial e o desenvolvimento do código até a documentação final, potencializando assim nosso aprendizado e o espírito de inovação.</p>
-            
-            <p>O município de <strong>Capanema, localizado na região Sudoeste do Paraná</strong>, tem sua economia fortemente alicerçada no agronegócio. A produção de <strong>milho, soja e trigo</strong> é a base da atividade econômica local, gerando emprego e renda para milhares de famílias, especialmente da agricultura familiar.</p>
-            
-            <p>Infelizmente, a realidade dos produtores rurais de Capanema tem sido marcada por um desafio climático crescente: a <strong>estiagem prolongada</strong>. Em 2026, a situação se agravou, com o município acumulando apenas <strong>79,8 milímetros de chuva entre janeiro e março</strong>, um volume muito abaixo da média histórica de cerca de 500 mm para o período[reference:0]. A falta de chuva tem causado prejuízos severos, ultrapassando a marca de <strong>R$ 69 milhões</strong>, afetando principalmente as culturas de milho e a produção de leite[reference:1],[reference:2]. A situação se tornou tão crítica que o reconhecimento federal de situação de emergência foi solicitado[reference:3]. Produtores locais relatam cenários desoladores, com lavouras totalmente perdidas[reference:4].</p>
-            
-            <p>Foi diante dessa realidade desafiadora, que une o potencial agrícola de Capanema com a necessidade urgente de soluções inovadoras e acessíveis, que a ideia do <strong>SoilSniff — o sensor de "cheiro" do solo</strong> foi concebida. Nosso projeto propõe uma solução tecnológica de baixo custo que utiliza um "nariz eletrônico" para auxiliar no diagnóstico precoce do estresse hídrico e da saúde do solo, oferecendo uma ferramenta prática para o pequeno produtor rural tomar decisões mais assertivas e reduzir perdas.</p>
+    <div class="header">
+        <div class="header-content">
+            <h1>🌽 SoilSniff</h1>
+            <p>Sensor de "Cheiro" do Solo para Milho</p>
+            <p style="font-size: 1rem; opacity: 0.85;">Monitoramento precoce de estresse hídrico e saúde do solo via nariz eletrônico</p>
+            <div class="badges">
+                <span class="badge">📜 MIT License</span>
+                <span class="badge">⚙️ Protótipo Funcional</span>
+                <span class="badge">🔧 Arduino Uno</span>
+                <span class="badge">📍 Capanema-PR</span>
+                <span class="badge">🤖 Com IA</span>
+            </div>
+        </div>
+    </div>
 
-            <div class="stat-card" style="background: #e8f0e5; text-align: left;">
-                <p style="font-size: 1.2rem; font-weight: 600;">🎯 Missão</p>
+    <div class="container">
+        <div class="nav">
+            <a href="#contexto">🌾 Contexto</a>
+            <a href="#impacto">📉 Impacto da Estiagem</a>
+            <a href="#agrinho">🏆 Projeto Agrinho</a>
+            <a href="#solucao">💡 SoilSniff</a>
+            <a href="#ia">🤖 IA no Projeto</a>
+            <a href="#referencias">📚 Referências</a>
+        </div>
+
+        <!-- SEÇÃO CONTEXTO -->
+        <section id="contexto" class="section">
+            <h2><i class="fas fa-seedling"></i> Contexto e Motivação</h2>
+            <p>Este projeto foi desenvolvido nas <strong>aulas de Educação Digital</strong> do município de <strong>Capanema-PR</strong>, com o objetivo de aplicar conhecimentos tecnológicos para resolver um problema real da nossa comunidade: os prejuízos causados pela estiagem na cultura do milho.</p>
+            <p>Utilizamos <strong>Inteligência Artificial (IA)</strong> como ferramenta de apoio durante todo o processo — desde a pesquisa inicial e o desenvolvimento do código até a documentação final. Isso potencializou nosso aprendizado e trouxe inovação ao projeto, alinhando-se às diretrizes do <strong>Programa Agrinho</strong>.</p>
+            <div class="stat-card" style="background: #e8f0e5; text-align: left; margin-top: 1rem;">
+                <p style="font-size: 1.2rem; font-weight: 600;">🎯 Missão do SoilSniff</p>
                 <p>Democratizar o acesso ao diagnóstico do solo, reduzindo perdas na lavoura e aumentando a resiliência climática do pequeno produtor de Capanema-PR.</p>
             </div>
         </section>
+
+        <!-- SEÇÃO IMPACTO DA ESTIAGEM (com cards e dados) -->
+        <section id="impacto" class="section">
+            <h2><i class="fas fa-tint"></i> Impacto da Estiagem em Capanema</h2>
+            <p>O sudoeste do Paraná enfrenta a pior estiagem em uma década. Em Capanema, os números são alarmantes:</p>
+            <div class="stats-grid" style="margin: 1.5rem 0;">
+                <div class="stat-card">
+                    <div class="stat-number">R$ 69 mi</div>
+                    <div>Prejuízo total na agricultura</div>
+                    <small style="color:#4a7c59;">Fonte: G1/2026</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">79,8 mm</div>
+                    <div>Chuva (jan-mar/2026)</div>
+                    <small style="color:#4a7c59;">Média histórica: 500 mm</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div>Perda na safra de milho</div>
+                    <small style="color:#4a7c59;">Notícias Agrícolas</small>
+                </div>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Lavouras comprometidas</h3>
+                    <p>Milho, feijão e pastagens foram drasticamente afetados, impactando também a produção de leite.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-frown"></i> Agricultores familiares</h3>
+                    <p>Os pequenos produtores são os mais vulneráveis, sem acesso a tecnologias caras de previsão ou irrigação.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-city"></i> Economia local</h3>
+                    <p>A agricultura é a base da economia de Capanema – a perda de safra afeta toda a cadeia produtiva.</p>
+                </div>
+            </div>
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #e8f0e5; border-radius: 16px;">
+                <p><i class="fas fa-quote-left"></i> <em>“A situação é crítica. Nunca vi uma estiagem tão severa. Plantamos milho e feijão, mas quase tudo se perdeu.”</em> – <strong>Depoimento de agricultor local</strong></p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROJETO AGRINHO -->
+        <section id="agrinho" class="section">
+            <h2><i class="fas fa-award"></i> Programa Agrinho</h2>
+            <p>O <strong>Programa Agrinho</strong> é uma iniciativa do <strong>Sistema FAEP/SENAR-PR</strong>, em parceria com o governo do estado e a Secretaria de Estado da Educação. Há mais de 30 anos, ele leva às escolas temas como cidadania, meio ambiente, saúde, inovação e tecnologia, conectando o campo e a cidade.</p>
+            <p>O <strong>Concurso Agrinho</strong> estimula a criatividade e o protagonismo estudantil. Atualmente, conta com modalidades como <strong>robótica e programação</strong>, incentivando soluções tecnológicas para problemas reais do agronegócio.</p>
+            <div class="card" style="margin-top: 1rem;">
+                <h3><i class="fas fa-handshake"></i> Alinhamento com o SoilSniff</h3>
+                <p>Nosso projeto se enquadra perfeitamente no pilar de <strong>inovação tecnológica aplicada ao campo</strong>, usando programação, sensores e inteligência artificial para ajudar o produtor rural a tomar decisões mais assertivas.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOLUÇÃO SOILSNIFF -->
+        <section id="solucao" class="section">
+            <h2><i class="fas fa-microchip"></i> SoilSniff – A Solução</h2>
+            <p>O <strong>SoilSniff</strong> é um dispositivo de baixo custo (protótipo por ~R$ 180) que funciona como um "nariz eletrônico". Enterrado a 10-15 cm de profundidade, ele detecta compostos orgânicos voláteis (VOCs) liberados por micróbios e raízes do milho, fornecendo um diagnóstico rápido da saúde do solo e do nível de estresse hídrico.</p>
+            <div class="led-table">
+                <div class="led-item">
+                    <div class="led-light verde"></div>
+                    <div><strong>🟢 Verde</strong> – Solo fértil e úmido<br><small>Manejo normal</small></div>
+                </div>
+                <div class="led-item">
+                    <div class="led-light amarelo"></div>
+                    <div><strong>🟡 Amarelo</strong> – Matéria orgânica baixa / início de estresse<br><small>Aplicar composto / monitorar irrigação</small></div>
+                </div>
+                <div class="led-item">
+                    <div class="led-light vermelho"></div>
+                    <div><strong>🔴 Vermelho</strong> – Solo doente ou estresse hídrico severo<br><small>Irrigar urgente ou colher antecipadamente</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO IA NO PROJETO -->
+        <section id="ia" class="section">
+            <h2><i class="fas fa-robot"></i> Como a Inteligência Artificial Ajudou</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-search"></i> Pesquisa e coleta de dados</h3>
+                    <p>Utilizamos IA para buscar notícias atualizadas sobre a estiagem em Capanema e levantar referências técnicas sobre sensores de solo.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-code"></i> Desenvolvimento do código</h3>
+                    <p>Ferramentas de IA auxiliaram na escrita e refatoração do código Arduino, na lógica do algoritmo de decisão e na criação da simulação interativa (sliders).</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-file-alt"></i> Documentação e site</h3>
+                    <p>A IA gerou a estrutura inicial deste site, as seções de texto e as referências, otimizando nosso tempo e garantindo um material mais completo e profissional.</p>
+                </div>
+            </div>
+            <div class="code-block" style="margin-top: 1rem;">
+                <p style="color: white; margin-bottom: 0.5rem;">🔍 Exemplo de prompt utilizado:</p>
+                <pre style="margin:0; color:#a5d6ff;">"Pesquise notícias recentes sobre estiagem em Capanema-PR e prejuízos na agricultura. Crie um resumo com dados numéricos e fontes confiáveis."</pre>
+            </div>
+        </section>
+
+        <!-- SEÇÃO REFERÊNCIAS -->
+        <section id="referencias" class="section">
+            <h2><i class="fas fa-book"></i> Referências e Fontes</h2>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 0.75rem;"><i class="fas fa-newspaper"></i> <strong>G1</strong> – Estiagem provoca prejuízo de R$ 69 milhões na agricultura em Capanema (março/2026).</li>
+                <li style="margin-bottom: 0.75rem;"><i class="fas fa-newspaper"></i> <strong>Folha Agrícola</strong> – Estiagem avança e 12 cidades decretam emergência no PR (abril/2026).</li>
+                <li style="margin-bottom: 0.75rem;"><i class="fas fa-newspaper"></i> <strong>Notícias Agrícolas</strong> – Após passar por três períodos de estiagem, Capanema/PR deve ter 35% de perdas na segunda safra de milho (maio/2020).</li>
+                <li style="margin-bottom: 0.75rem;"><i class="fas fa-seedling"></i> <strong>Programa Agrinho</strong> – 30 anos de educação que conecta campo e cidade (Jornal do Oeste, out/2025).</li>
+                <li><i class="fas fa-microchip"></i> <strong>Artigo técnico</strong> – "Electronic nose for soil VOC detection" – Sensors Journal, 2022.</li>
+            </ul>
+            <div style="margin-top: 1rem; padding: 1rem; background: #e8f0e5; border-radius: 16px;">
+                <p><i class="fas fa-graduation-cap"></i> Este projeto foi desenvolvido nas aulas de <strong>Educação Digital</strong> com apoio de ferramentas de <strong>Inteligência Artificial</strong> para fins didáticos e de inovação tecnológica.</p>
+            </div>
+        </section>
     </div>
-    <div class="footer"><p>Feito com ❤️ em Capanema-PR</p><p>SoilSniff © 2026 – MIT License</p></div>
+
+    <div class="footer">
+        <p>Feito com ❤️ em Capanema-PR – Sudoeste do Paraná</p>
+        <p>SoilSniff © 2026 – MIT License</p>
+        <div style="margin-top: 0.5rem; font-size: 0.8rem;">
+            <i class="fab fa-github"></i> GitHub · 
+            <i class="fab fa-twitter"></i> Twitter · 
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.7rem;">Projeto desenvolvido com auxílio de IA para fins educacionais – Programa Agrinho 2026.</p>
+    </div>
 </body>
-</html>
