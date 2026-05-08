@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoilSniff - Simulação Interativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/text.css">
+    <link rel="stylesheet" href="../css/divs.css">
+</head>
+<body>
+    <div class="header"><div class="header-content"><h1>🌽 SoilSniff</h1><p>Sensor de "Cheiro" do Solo</p></div></div>
+    <div class="container">
+        <div class="nav"><a href="../index.html">← Voltar ao início</a></div>
+        <section class="section">
+            <h2><i class="fas fa-gamepad"></i> Simulação Interativa</h2>
+            <div class="demo-panel">
+                <h3 style="color:white;">Ajuste os parâmetros e veja o diagnóstico</h3>
+                <div class="demo-led" id="demoLed" style="background-color: #22c55e;"></div>
+                <div id="demoStatus" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">🟢 Solo Fértil e Saudável</div>
+                <div class="slider-container"><label>🌊 Umidade (%): <span id="umidadeValor">50</span>%</label><input type="range" id="umidadeSlider" min="0" max="100" value="50"></div>
+                <div class="slider-container"><label>💨 Metano (ppm): <span id="metanoValor">10</span> ppm</label><input type="range" id="metanoSlider" min="0" max="50" value="10"></div>
+                <div class="slider-container"><label>⚠️ Sulfeto (ppm): <span id="sulfetoValor">1</span> ppm</label><input type="range" id="sulfetoSlider" min="0" max="15" value="1"></div>
+                <div class="slider-container"><label>🍂 Amônia (ppm): <span id="amoniaValor">20</span> ppm</label><input type="range" id="amoniaSlider" min="0" max="100" value="20"></div>
+                <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Baseado no algoritmo do SoilSniff</p>
+            </div>
+        </section>
+    </div>
+    <div class="footer"><p>Feito com ❤️ em Capanema-PR</p><p>SoilSniff © 2026 – MIT License</p></div>
+    <script src="../script.js"></script>
+</body>
+</html>

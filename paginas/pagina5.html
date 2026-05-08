@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoilSniff - Algoritmo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/text.css">
+    <link rel="stylesheet" href="../css/divs.css">
+</head>
+<body>
+    <div class="header"><div class="header-content"><h1>🌽 SoilSniff</h1><p>Sensor de "Cheiro" do Solo</p></div></div>
+    <div class="container">
+        <div class="nav"><a href="../index.html">← Voltar ao início</a></div>
+        <section class="section">
+            <h2><i class="fas fa-brain"></i> Algoritmo de Decisão</h2>
+            <div class="code-block">
+                <pre style="margin:0; color:#e2e8f0;">
+1. Ler sensor_amonia (MQ135)
+2. Ler sensor_metano (MQ4)
+3. Ler sensor_sulfeto (MQ136)
+4. Ler umidade_solo (higrômetro)
+
+5. Se umidade_solo < 20%:       → 🔴 VERMELHO
+6. Senão se umidade_solo > 80%: → 🔴 VERMELHO
+7. Senão se metano > 30ppm OU sulfeto > 5ppm: → 🔴 VERMELHO
+8. Senão se amonia > 5ppm E amonia < 50ppm:   → 🟡 AMARELO
+9. Senão: → 🟢 VERDE
+                </pre>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number">20-60%</div><div>Umidade ideal</div></div>
+                <div class="stat-card"><div class="stat-number">5-50ppm</div><div>Amônia (atenção)</div></div>
+                <div class="stat-card"><div class="stat-number">&lt;30ppm</div><div>Metano seguro</div></div>
+                <div class="stat-card"><div class="stat-number">&lt;5ppm</div><div>Sulfeto seguro</div></div>
+            </div>
+        </section>
+    </div>
+    <div class="footer"><p>Feito com ❤️ em Capanema-PR</p><p>SoilSniff © 2026 – MIT License</p></div>
+</body>
+</html>
