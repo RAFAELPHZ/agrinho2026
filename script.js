@@ -1,55 +1,92 @@
 // Demo interativa
-const umidadeSlider = document.getElementById('umidadeSlider');
-const metanoSlider = document.getElementById('metanoSlider');
-const sulfetoSlider = document.getElementById('sulfetoSlider');
-const amoniaSlider = document.getElementById('amoniaSlider');
+// =============================================
+//  SoilSniff – script.js
+//  Lógica da simulação interativa (seção Demo)
+// =============================================
 
-const umidadeValor = document.getElementById('umidadeValor');
-const metanoValor = document.getElementById('metanoValor');
-const sulfetoValor = document.getElementById('sulfetoValor');
-const amoniaValor = document.getElementById('amoniaValor');
+const sliders = {
+    umidade: document.getElementById('umidadeSlider'),
+    metano:  document.getElementById('metanoSlider'),
+    sulfeto: document.getElementById('sulfetoSlider'),
+    amonia:  document.getElementById('amoniaSlider'),
+};
 
-const demoLed = document.getElementById('demoLed');
-const demoStatus = document.getElementById('demoStatus');
+const valores = {
+    umidade: document.getElementById('umidadeValor'),
+    metano:  document.getElementById('metanoValor'),
+    sulfeto: document.getElementById('sulfetoValor'),
+    amonia:  document.getElementById('amoniaValor'),
+};
 
-function atualizarDemo() {
-    const umidade = parseFloat(umidadeSlider.value);
-    const metano = parseFloat(metanoSlider.value);
-    const sulfeto = parseFloat(sulfetoSlider.value);
-    const amonia = parseFloat(amoniaSlider.value);
+const led    = document.getElementById('demoLed');
+const status = document.getElementById('demoStatus');
 
-    umidadeValor.textContent = umidade;
-    metanoValor.textContent = metano;
-    sulfetoValor.textContent = sulfeto;
-    amoniaValor.textContent = amonia;
-
-    let status = "";
-    let cor = "";
-
-    if (umidade < 20) {
-        status = "🔴 ESTRESSE HÍDRICO SEVERO - Irrigue imediatamente!";
-        cor = "#ef4444";
-    } else if (umidade > 80) {
-        status = "🔴 SOLO ENCHARCADO - Suspenda irrigação";
-        cor = "#ef4444";
-    } else if (metano > 30 || sulfeto > 5) {
-        status = "🔴 SOLO DOENTE - Aerar solo e verificar drenagem";
-        cor = "#ef4444";
-    } else if (amonia > 5 && amonia < 50) {
-        status = "🟡 MATÉRIA ORGÂNICA EM DECOMPOSIÇÃO - Aplicar composto";
-        cor = "#eab308";
-    } else {
-        status = "🟢 SOLO FÉRTIL E SAUDÁVEL - Manejo normal";
-        cor = "#22c55e";
+// ---------- Algoritmo de decisão ----------
+function diagnosticar(umidade, metano, sulfeto, amonia) {
+    if (umidade < 20 || umidade > 80) {
+        return {
+            cor:     '#ef4444',
+            sombra:  'rgba(239,68,68,0.5)',
+            emoji:   '🔴',
+            texto:   'Estresse Hídrico Severo',
+            dica:    umidade < 20 ? 'Irrigar urgentemente!' : 'Solo encharcado — verificar drenagem.',
+        };
     }
-
-    demoStatus.textContent = status;
-    demoLed.style.backgroundColor = cor;
-    demoLed.style.boxShadow = `0 0 20px ${cor}`;
+    if (metano > 30 || sulfeto > 5) {
+        return {
+            cor:    '#ef4444',
+            sombra: 'rgba(239,68,68,0.5)',
+            emoji:  '🔴',
+            texto:  'Solo Doente',
+            dica:   'Gases nocivos detectados. Verificar compactação ou putrefação.',
+        };
+    }
+    if (amonia > 5 && amonia < 50) {
+        return {
+            cor:    '#eab308',
+            sombra: 'rgba(234,179,8,0.5)',
+            emoji:  '🟡',
+            texto:  'Atenção — Monitorar Solo',
+            dica:   'Matéria orgânica em decomposição. Aplicar composto se necessário.',
+        };
+    }
+    return {
+        cor:    '#22c55e',
+        sombra: 'rgba(34,197,94,0.5)',
+        emoji:  '🟢',
+        texto:  'Solo Fértil e Saudável',
+        dica:   'Condições ideais. Continuar manejo normal.',
+    };
 }
 
-[umidadeSlider, metanoSlider, sulfetoSlider, amoniaSlider].forEach(slider => {
-    slider.addEventListener('input', atualizarDemo);
+// ---------- Atualizar interface ----------
+function atualizar() {
+    const umidade = Number(sliders.umidade.value);
+    const metano  = Number(sliders.metano.value);
+    const sulfeto = Number(sliders.sulfeto.value);
+    const amonia  = Number(sliders.amonia.value);
+
+    // Atualiza os rótulos dos sliders
+    valores.umidade.textContent = umidade;
+    valores.metano.textContent  = metano;
+    valores.sulfeto.textContent = sulfeto;
+    valores.amonia.textContent  = amonia;
+
+    // Roda o algoritmo
+    const resultado = diagnosticar(umidade, metano, sulfeto, amonia);
+
+    // Atualiza LED
+    led.style.backgroundColor = resultado.cor;
+    led.style.boxShadow = `0 0 30px 10px ${resultado.sombra}`;
+
+    // Atualiza texto de status
+    status.textContent = `${resultado.emoji} ${resultado.texto} — ${resultado.dica}`;
+}
+
+// ---------- Eventos ----------
+Object.values(sliders).forEach(slider => {
+    slider.addEventListener('input', atualizar);
 });
 
-atualizarDemo();
+// ---------- Estado inicial ----------
+atualizar();
