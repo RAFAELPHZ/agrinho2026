@@ -46,13 +46,13 @@ body {
 
 /* ---------- HEADER ---------- */
 .header {
-    background: linear-gradient(135deg, #0d1a0b 0%, #1a2e10 60%, #0f1f0d 100%);
+    background: linear-gradient(135deg, #0a2540 0%, #0e3460 60%, #1a4a7a 100%);
     color: var(--branco);
     padding: 4rem 2rem 3rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 2px solid rgba(212,175,55,0.3);
+    border-bottom: 2px solid rgba(93,220,110,0.25);
 }
 
 .header::before {
@@ -60,8 +60,8 @@ body {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 30% 60%, rgba(212,175,55,0.08) 0%, transparent 55%),
-        radial-gradient(ellipse at 75% 25%, rgba(212,175,55,0.05) 0%, transparent 50%);
+        radial-gradient(ellipse at 25% 60%, rgba(93,220,110,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 25%, rgba(30,100,200,0.15) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -71,7 +71,7 @@ body {
     font-weight: 400;
     letter-spacing: -0.5px;
     margin-bottom: 0.4rem;
-    background: linear-gradient(120deg, #ffffff 30%, #d4af37 100%);
+    background: linear-gradient(120deg, #ffffff 40%, #5ddc6e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -79,9 +79,9 @@ body {
 
 .header p {
     font-size: 1.15rem;
-    opacity: 0.80;
+    opacity: 0.85;
     font-weight: 300;
-    color: #c8dfc0;
+    color: #a8c8f0;
 }
 
 .header-content {
@@ -116,9 +116,9 @@ body {
 }
 
 .badge {
-    background: rgba(212,175,55,0.12);
-    border: 1px solid rgba(212,175,55,0.35);
-    color: #e8d48a;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #c8e0ff;
     padding: 0.3rem 0.9rem;
     border-radius: 999px;
     font-size: 0.82rem;
