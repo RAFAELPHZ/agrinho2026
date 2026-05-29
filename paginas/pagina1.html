@@ -4,49 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoilSniff - Contexto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/text.css">
     <link rel="stylesheet" href="../css/divs.css">
+    <style>
+        .destaque-numero {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3rem;
+            color: var(--verde-medio);
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .citacao {
+            border-left: 4px solid var(--verde-neon);
+            background: var(--verde-claro);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--verde-escuro);
+            font-size: 1.05rem;
+        }
+
+        .citacao span {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--texto-suave);
+            font-weight: 600;
+        }
+
+        .problema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .problema-item {
+            background: var(--verde-claro);
+            border-radius: var(--radius);
+            padding: 1.3rem 1.2rem;
+            border: 1px solid var(--verde-borda);
+            border-top: 3px solid var(--verde-neon);
+        }
+
+        .problema-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 0.4rem;
+        }
+
+        .problema-item p {
+            font-size: 0.88rem;
+            color: var(--texto-suave);
+            margin: 0;
+        }
+
+        .voltar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--verde-medio);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 0;
+            transition: color 0.2s;
+        }
+
+        .voltar-link:hover { color: var(--verde-escuro); }
+    </style>
 </head>
 <body>
+
     <div class="header">
         <div class="header-content">
             <h1>🌽 SoilSniff</h1>
-            <p>Sensor de "Cheiro" do Solo</p>
+            <p>Sensor de "Cheiro" do Solo para Milho</p>
+            <p style="font-size: 1rem; opacity: 0.80; margin-top: 0.3rem;">Contexto e Motivação</p>
         </div>
+    </div>
+
+    <div class="nav">
+        <a href="../index.html#contexto">🌾 Contexto</a>
+        <a href="../index.html#problema">⚠️ Problema</a>
+        <a href="../index.html#solucao">💡 Solução</a>
+        <a href="../index.html#hardware">🛠️ Hardware</a>
+        <a href="../index.html#algoritmo">🧠 Algoritmo</a>
+        <a href="../index.html#demo">🎮 Demo</a>
+        <a href="../index.html#contribuir">🤝 Contribuir</a>
     </div>
 
     <div class="container">
-        <!-- MENU CORRIGIDO: todos os links apontam para o index.html + âncora -->
-        <div class="nav">
-            <a href="../index.html#contexto">🌾 Contexto</a>
-            <a href="../index.html#problema">⚠️ Problema</a>
-            <a href="../index.html#solucao">💡 Solução</a>
-            <a href="../index.html#hardware">🛠️ Hardware</a>
-            <a href="../index.html#algoritmo">🧠 Algoritmo</a>
-            <a href="../index.html#demo">🎮 Demo</a>
-            <a href="../index.html#contribuir">🤝 Contribuir</a>
-        </div>
 
+        <a href="../index.html" class="voltar-link">
+            <i class="fas fa-arrow-left"></i> Voltar para o início
+        </a>
+
+        <!-- Manchete -->
         <section class="section">
-            <h2><i class="fas fa-seedling"></i> Contexto e Motivação</h2>
-            <p><strong>Capanema-PR, Abril de 2026</strong> – O sudoeste do Paraná enfrenta sua pior estiagem em uma década. As perdas na cultura do milho já ultrapassam <strong>R$ 69 milhões</strong> na região, com lavouras completamente comprometidas.</p>
+            <h2><i class="fas fa-newspaper"></i> A Crise no Campo</h2>
+            <p style="font-size: 1.15rem; font-weight: 600; color: var(--verde-escuro); line-height: 1.5;">
+                Estiagem no sudoeste do Paraná já causa R$ 69 milhões em perdas no milho — e o pequeno produtor precisa de soluções simples.
+            </p>
             <br>
-            <p>Agricultores familiares e produtores de médio porte não têm acesso a tecnologias caras de agricultura de precisão. Eles precisam de <strong>soluções simples, de baixo custo e que funcionem no campo real</strong>.</p>
+            <p>
+                <strong>Capanema-PR, abril de 2026</strong> — O sudoeste do Paraná enfrenta sua pior estiagem em uma década. Na região, as perdas na cultura do milho já ultrapassam <strong>R$ 69 milhões</strong>, com lavouras completamente comprometidas.
+            </p>
             <br>
-            <div class="stat-card" style="background: #e8f0e5; text-align: left;">
-                <p style="font-size: 1.2rem; font-weight: 600;">🎯 Missão</p>
-                <p>Democratizar o acesso ao diagnóstico do solo, reduzindo perdas na lavoura e aumentando a resiliência climática do pequeno produtor.</p>
+            <p>
+                Enquanto grandes propriedades contam com agricultura de precisão — sensores de solo, drones e irrigação automatizada —, agricultores familiares e produtores de médio porte ficam excluídos pelo alto custo dessas tecnologias. Eles não precisam do que é caro. <strong>Precisam do que funciona. E que caiba no bolso.</strong>
+            </p>
+
+            <div class="stats-grid" style="margin-top: 2rem;">
+                <div class="stat-card">
+                    <div class="stat-number">R$ 69mi</div>
+                    <div>Perdas na região</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1 década</div>
+                    <div>Pior estiagem</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div>Lavouras comprometidas</div>
+                </div>
             </div>
         </section>
+
+        <!-- O Problema -->
+        <section class="section">
+            <h2><i class="fas fa-exclamation-triangle"></i> O Problema no Campo</h2>
+            <p>
+                A agricultura de precisão transformou a gestão de grandes lavouras. Mas os custos são proibitivos para a maioria dos produtores da região.
+            </p>
+
+            <div class="problema-grid">
+                <div class="problema-item">
+                    <h4>💸 Sensores profissionais</h4>
+                    <p>Custam de R$ 5 mil a R$ 50 mil por hectare — inviável para agricultores familiares.</p>
+                </div>
+                <div class="problema-item">
+                    <h4>🚿 Irrigação automatizada</h4>
+                    <p>Exige investimento inicial alto e manutenção especializada, fora do alcance da maioria.</p>
+                </div>
+                <div class="problema-item">
+                    <h4>👨‍🌾 Exclusão tecnológica</h4>
+                    <p>Produtores de médio porte e familiares ficam para trás enquanto grandes propriedades avançam.</p>
+                </div>
+            </div>
+
+            <div class="citacao">
+                "O que adianta uma tecnologia incrível se ninguém consegue pagar por ela?"
+                <span>— Produtor rural de Capanema-PR</span>
+            </div>
+        </section>
+
+        <!-- Por que o SoilSniff -->
+        <section class="section">
+            <h2><i class="fas fa-seedling"></i> Por que o SoilSniff?</h2>
+            <p>
+                O SoilSniff nasceu dessa realidade. Um sensor de baixo custo, simples de usar e que funciona no campo real — sem precisar de internet, técnico especializado ou investimento alto.
+            </p>
+            <br>
+            <p>
+                Com menos de <strong>R$ 180</strong> em componentes, qualquer produtor pode ter acesso a um diagnóstico precoce do solo, agir antes que a planta murche e <strong>salvar até 30% da produção</strong>.
+            </p>
+            <br>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="../index.html#solucao" class="btn">
+                    <i class="fas fa-arrow-right"></i> Ver a solução completa
+                </a>
+            </div>
+        </section>
+
     </div>
 
     <div class="footer">
-        <p>Feito com ❤️ em Capanema-PR</p>
-        <p>SoilSniff © 2026 – MIT License</p>
+        <p>Feito com ❤️ e terra nas mãos em Capanema-PR, Sudoeste do Paraná.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">SoilSniff © 2026 – MIT License</p>
+        <div style="margin-top: 1rem;">
+            <i class="fab fa-github" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
+            <i class="fab fa-twitter" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
+            <i class="fab fa-linkedin" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
+        </div>
     </div>
+
 </body>
-</html>
 </html>
