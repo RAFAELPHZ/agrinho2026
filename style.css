@@ -426,6 +426,33 @@ body {
     transform: translateY(-2px);
 }
 
+/* ---------- OVERRIDES (estilos inline no HTML) ---------- */
+
+/* Card de Missão e similares com background inline claro */
+.section [style*="background"],
+.section div[style*="background: #e8f0e5"],
+.section div[style*="background:#e8f0e5"] {
+    background: rgba(93,220,110,0.07) !important;
+    color: var(--texto) !important;
+}
+
+/* Stat-card com background inline */
+.stat-card[style] {
+    background: rgba(93,220,110,0.07) !important;
+    color: var(--texto) !important;
+}
+
+/* Textos com color inline dentro das sections */
+.section p[style*="color"],
+.section div[style*="color"] {
+    color: var(--texto) !important;
+}
+
+/* Container — garante fundo escuro */
+.container {
+    background: transparent;
+}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width: 600px) {
     .section {
