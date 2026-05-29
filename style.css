@@ -102,30 +102,21 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* ---------- NAV WRAPPER (faixa branca fixa) ---------- */
-.nav-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--branco);
-    box-shadow: 0 2px 16px rgba(26,77,46,0.10);
-    border-bottom: 2px solid var(--verde-claro);
-    padding: 0.75rem 1.5rem;
-    display: flex;
-    justify-content: center;
-}
-
 /* ---------- NAV ---------- */
 .nav {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
     gap: 0.25rem;
-    background: var(--fundo);
-    padding: 0.5rem 1rem;
-    border: 1.5px solid var(--verde-borda);
-    border-radius: 999px;
-    white-space: nowrap;
+    background: var(--branco);
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(26,77,46,0.08);
+    border-bottom: 2px solid var(--verde-claro);
+    width: 100%;
 }
 
 .nav a {
@@ -356,7 +347,7 @@ body {
     .section { padding: 1.5rem 1rem; }
     .hardware-table { font-size: 0.78rem; }
     .hardware-table th, .hardware-table td { padding: 0.5rem 0.6rem; }
-    .nav { flex-wrap: wrap; border-radius: 20px; }
+    .nav { flex-wrap: wrap; }
     .nav a { font-size: 0.75rem; padding: 0.3rem 0.5rem; }
     .demo-panel { padding: 1.5rem 1rem; }
 }
