@@ -14,17 +14,19 @@
 }
 
 :root {
-    --verde-escuro:  #2d5a27;
+    --verde-escuro:  #1e3d1a;
     --verde-medio:   #4a7c59;
     --verde-claro:   #e8f0e5;
     --verde-menta:   #c8dfc0;
+    --verde-neon:    #5ddc6e;
     --terra:         #8b5e3c;
-    --areia:         #f5f0e8;
-    --texto:         #1a2e18;
-    --texto-suave:   #5a6e4d;
+    --fundo:         #111d0f;
+    --fundo-card:    #1a2e17;
+    --texto:         #eaf2e7;
+    --texto-suave:   #8fb88a;
     --branco:        #ffffff;
-    --sombra:        0 4px 24px rgba(45, 90, 39, 0.10);
-    --sombra-forte:  0 8px 40px rgba(45, 90, 39, 0.18);
+    --sombra:        0 4px 24px rgba(0,0,0,0.35);
+    --sombra-forte:  0 8px 40px rgba(0,0,0,0.50);
     --radius:        20px;
     --radius-lg:     32px;
 }
@@ -35,7 +37,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--areia);
+    background-color: var(--fundo);
     color: var(--texto);
     line-height: 1.7;
     font-size: 1rem;
@@ -111,17 +113,17 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.4rem;
-    background: var(--branco);
+    background: var(--fundo-card);
     padding: 1rem 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(45,90,39,0.08);
-    border-bottom: 2px solid var(--verde-claro);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(93,220,110,0.15);
 }
 
 .nav a {
-    color: var(--verde-medio);
+    color: var(--texto-suave);
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 600;
@@ -132,8 +134,8 @@ body {
 }
 
 .nav a:hover {
-    background: var(--verde-claro);
-    color: var(--verde-escuro);
+    background: rgba(93,220,110,0.12);
+    color: var(--verde-neon);
 }
 
 /* ---------- CONTAINER ---------- */
@@ -145,24 +147,26 @@ body {
 
 /* ---------- SECTION ---------- */
 .section {
-    background: var(--branco);
+    background: var(--fundo-card);
     border-radius: var(--radius-lg);
     padding: 2.5rem 2rem;
     margin-bottom: 2rem;
     box-shadow: var(--sombra);
-    border: 1px solid rgba(200,223,192,0.5);
-    transition: box-shadow 0.3s;
+    border: 1px solid rgba(93,220,110,0.10);
+    border-left: 3px solid var(--verde-neon);
+    transition: box-shadow 0.3s, border-color 0.3s;
 }
 
 .section:hover {
     box-shadow: var(--sombra-forte);
+    border-left-color: #7fffb0;
 }
 
 .section h2 {
     font-family: 'Instrument Serif', serif;
     font-size: 1.8rem;
     font-weight: 400;
-    color: var(--verde-escuro);
+    color: var(--verde-neon);
     margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
@@ -197,22 +201,23 @@ body {
 }
 
 .card {
-    background: var(--verde-claro);
+    background: rgba(93,220,110,0.06);
     border-radius: var(--radius);
     padding: 1.2rem 1rem;
-    border: 1px solid var(--verde-menta);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(93,220,110,0.15);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .card:hover {
     transform: translateY(-3px);
+    background: rgba(93,220,110,0.10);
     box-shadow: var(--sombra);
 }
 
 .card h3 {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--verde-escuro);
+    color: var(--verde-neon);
     margin-bottom: 0.4rem;
 }
 
@@ -258,10 +263,10 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: var(--verde-claro);
+    background: rgba(93,220,110,0.05);
     border-radius: var(--radius);
     padding: 1rem 1.2rem;
-    border: 1px solid var(--verde-menta);
+    border: 1px solid rgba(93,220,110,0.12);
 }
 
 .led-light {
@@ -301,12 +306,12 @@ body {
 
 .hardware-table td {
     padding: 0.7rem 1rem;
-    border-bottom: 1px solid var(--verde-claro);
+    border-bottom: 1px solid rgba(93,220,110,0.08);
     color: var(--texto);
 }
 
 .hardware-table tbody tr:nth-child(even) {
-    background: var(--verde-claro);
+    background: rgba(93,220,110,0.05);
 }
 
 .hardware-table tbody tr:last-child td:first-child { border-radius: 0 0 0 12px; }
