@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoilSniff - Contribuir</title>
+  <title>SoilSniff - Demo</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -37,115 +37,113 @@
       border-bottom: 1px solid #2d5a2d;
     }
     .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #f48fb1; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #ffb74d; margin-bottom: 0.5rem; }
     .hero p { font-size: 1.1rem; color: #a5d6a7; max-width: 600px; margin: 0 auto; }
 
     .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
 
-    .intro-box {
+    /* SIMULADOR */
+    .simulator {
       background: #1a2a1a;
-      border-left: 4px solid #f48fb1;
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
+      border: 1px solid #2d5a2d;
+      border-radius: 12px;
+      padding: 2rem;
       margin-bottom: 3rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
+    }
+    .simulator h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .simulator .subtitle { color: #a5d6a7; font-size: 0.9rem; margin-bottom: 2rem; }
+
+    /* LED */
+    .led-display {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .led-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      transition: all 0.5s ease;
+      box-shadow: 0 0 30px currentColor;
+    }
+    .led-circle.verde { background: #4caf50; color: #4caf50; box-shadow: 0 0 40px #4caf50; }
+    .led-circle.amarelo { background: #ffeb3b; color: #ffeb3b; box-shadow: 0 0 40px #ffeb3b; }
+    .led-circle.vermelho { background: #ef5350; color: #ef5350; box-shadow: 0 0 40px #ef5350; }
+    .led-label { font-size: 1.3rem; font-weight: 700; }
+    .led-label.verde { color: #4caf50; }
+    .led-label.amarelo { color: #ffeb3b; }
+    .led-label.vermelho { color: #ef5350; }
+    .led-action { color: #a5d6a7; font-size: 0.9rem; margin-top: 0.3rem; }
+
+    /* SLIDERS */
+    .sliders { display: flex; flex-direction: column; gap: 1.5rem; }
+    .slider-group label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
       color: #c8e6c9;
     }
-    .intro-box strong { color: #f48fb1; }
-
-    /* FORMAS DE CONTRIBUIR */
-    .contrib-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .contrib-card {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-top: 3px solid #4caf50;
-      border-radius: 10px;
-      padding: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .contrib-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
-    }
-    .contrib-card .icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
-    .contrib-card h3 { color: #81c784; font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .contrib-card p { color: #a5d6a7; font-size: 0.9rem; line-height: 1.6; }
-
-    /* GITHUB */
-    .github-section {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-    .github-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1rem; }
-    .github-section p { color: #a5d6a7; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; }
-    .btn-github {
-      display: inline-block;
-      background: #4caf50;
-      color: #0a1a0a;
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      margin: 0.3rem;
-    }
-    .btn-github:hover { background: #81c784; transform: translateY(-2px); }
-    .btn-fork {
-      display: inline-block;
-      background: transparent;
+    .slider-group label .val {
+      background: #0d1f0d;
       color: #4caf50;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 2px solid #4caf50;
-      transition: all 0.2s;
-      margin: 0.3rem;
+      font-family: monospace;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      min-width: 70px;
+      text-align: center;
     }
-    .btn-fork:hover { background: #1b3a1b; transform: translateY(-2px); }
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      background: #243f24;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4caf50;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    input[type="range"]:hover::-webkit-slider-thumb { background: #81c784; }
 
-    /* RESULTADOS ESPERADOS */
-    .results-section {
+    /* CENÁRIOS RÁPIDOS */
+    .scenarios {
       background: #1a2a1a;
       border: 1px solid #2d5a2d;
       border-radius: 10px;
       padding: 2rem;
       margin-bottom: 3rem;
     }
-    .results-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem; }
-    .results-grid {
+    .scenarios h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .scenarios .subtitle { color: #a5d6a7; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .scenario-btns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
     }
-    .result-item .value { font-size: 2rem; font-weight: 800; color: #4caf50; }
-    .result-item .label { font-size: 0.85rem; color: #a5d6a7; margin-top: 0.3rem; line-height: 1.4; }
-
-    /* AGRADECIMENTOS */
-    .thanks-box {
-      background: linear-gradient(135deg, #1a2a1a, #0d1f0d);
-      border: 1px solid #4caf50;
-      border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      margin-bottom: 3rem;
+    .scenario-btn {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      color: #e8f5e8;
     }
-    .thanks-box h2 { color: #81c784; margin-bottom: 1rem; font-size: 1.3rem; }
-    .thanks-box p { color: #a5d6a7; font-size: 0.95rem; line-height: 1.7; }
-    .thanks-box .highlight { color: #4caf50; font-weight: 700; }
+    .scenario-btn:hover { background: #1b3a1b; border-color: #4caf50; }
+    .scenario-btn .s-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .scenario-btn .s-name { font-weight: 700; color: #81c784; font-size: 0.95rem; }
+    .scenario-btn .s-desc { color: #a5d6a7; font-size: 0.82rem; margin-top: 0.3rem; }
 
     footer {
       text-align: center;
@@ -160,98 +158,100 @@
 
   <nav>
     <a class="nav-brand" href="../index.html">🌽 SoilSniff</a>
-    <a href="../paginas/pagina1_contexto.html">🌾 Contexto</a>
-    <a href="../paginas/pagina2_problema.html">⚠️ Problema</a>
-    <a href="../paginas/pagina3_solucao.html">💡 Solução</a>
-    <a href="../paginas/pagina4_hardware.html">🛠️ Hardware</a>
-    <a href="../paginas/pagina5_algoritmo.html">🧠 Algoritmo</a>
-    <a href="../paginas/pagina6_demo.html">🎮 Demo</a>
-    <a href="../paginas/pagina7_contribuir.html">🤝 Contribuir</a>
+    <a href="../paginas/pagina1.html">🌾 Contexto</a>
+    <a href="../paginas/pagina2.html">⚠️ Problema</a>
+    <a href="../paginas/pagina3.html">💡 Solução</a>
+    <a href="../paginas/pagina4.html">🛠️ Hardware</a>
+    <a href="../paginas/pagina5.html">🧠 Algoritmo</a>
+    <a href="../paginas/pagina6.html">🎮 Demo</a>
+    <a href="../paginas/pagina7.html">🤝 Contribuir</a>
   </nav>
 
   <div class="hero">
-    <div class="hero-icon">🤝</div>
-    <h1>Como Contribuir</h1>
-    <p>O SoilSniff é open-source e open-hardware — toda ajuda é bem-vinda!</p>
+    <div class="hero-icon">🎮</div>
+    <h1>Simulação Interativa</h1>
+    <p>Ajuste os parâmetros dos sensores e veja o SoilSniff diagnosticando o solo em tempo real</p>
   </div>
 
   <div class="container">
 
-    <div class="intro-box">
-      Este é um projeto <strong>aberto</strong> criado para ajudar pequenos agricultores do sudoeste do Paraná.
-      Acreditamos que <strong>tecnologia de qualidade não pode ser privilégio de grandes produtores</strong>.
-      Se você tem conhecimento, dados de campo, ou só quer torcer — você já faz parte disso.
-    </div>
+    <div class="simulator">
+      <h2>🔬 Simulador do SoilSniff</h2>
+      <p class="subtitle">Mova os sliders e observe o LED reagindo ao estado do solo</p>
 
-    <div class="contrib-grid">
-      <div class="contrib-card">
-        <div class="icon">🧪</div>
-        <h3>Dados de Campo</h3>
-        <p>Envie amostras de solo ou padrões de leitura da sua região para calibrar o algoritmo e aumentar a precisão do sistema.</p>
+      <div class="led-display">
+        <div class="led-circle verde" id="ledCircle"></div>
+        <div class="led-label verde" id="ledLabel">🟢 Solo Fértil e Saudável</div>
+        <div class="led-action" id="ledAction">→ Continuar manejo normal</div>
       </div>
-      <div class="contrib-card">
-        <div class="icon">💻</div>
-        <h3>Código</h3>
-        <p>Melhore o algoritmo de decisão, adicione suporte a novos sensores, otimize o consumo de energia da bateria.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="icon">🔧</div>
-        <h3>Hardware</h3>
-        <p>Sugira componentes mais baratos, projetos de PCB personalizada, ou formas de reduzir o custo de fabricação em série.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="icon">📝</div>
-        <h3>Documentação</h3>
-        <p>Traduza para outros idiomas, crie tutoriais em vídeo ou escreva guias de montagem mais simples para leigos.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="icon">🗣️</div>
-        <h3>Divulgação</h3>
-        <p>Compartilhe com outros agricultores, escolas técnicas, universidades e cooperativas agropecuárias da região.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="icon">🐛</div>
-        <h3>Reportar Bugs</h3>
-        <p>Encontrou um erro no código ou na documentação? Abra uma issue no GitHub e nos ajude a melhorar.</p>
-      </div>
-    </div>
 
-    <div class="github-section">
-      <h2>🐙 Ver no GitHub</h2>
-      <p>Todo o código, esquemas de hardware e documentação estão disponíveis livremente sob a <strong>licença MIT</strong>. Qualquer pessoa pode usar, modificar e distribuir.</p>
-      <a href="https://github.com/RAFAELPHZ/agrinho2026" target="_blank" class="btn-github">⭐ Ver Repositório</a>
-      <a href="https://github.com/RAFAELPHZ/agrinho2026/fork" target="_blank" class="btn-fork">🍴 Fazer Fork</a>
-    </div>
-
-    <div class="results-section">
-      <h2>🎯 Resultados Esperados com a Comunidade</h2>
-      <div class="results-grid">
-        <div class="result-item">
-          <div class="value">85%</div>
-          <div class="label">Acurácia na detecção de estresse</div>
+      <div class="sliders">
+        <div class="slider-group">
+          <label>
+            🌊 Umidade do Solo
+            <span class="val" id="valUmidade">50%</span>
+          </label>
+          <input type="range" id="sliderUmidade" min="0" max="100" value="50" oninput="atualizar()">
         </div>
-        <div class="result-item">
-          <div class="value">&lt;2min</div>
-          <div class="label">Tempo de resposta do diagnóstico</div>
+        <div class="slider-group">
+          <label>
+            💨 Metano (MQ-4)
+            <span class="val" id="valMetano">10 ppm</span>
+          </label>
+          <input type="range" id="sliderMetano" min="0" max="100" value="10" oninput="atualizar()">
         </div>
-        <div class="result-item">
-          <div class="value">R$100</div>
-          <div class="label">Meta de custo final em lote</div>
+        <div class="slider-group">
+          <label>
+            ⚠️ Sulfeto (MQ-136)
+            <span class="val" id="valSulfeto">1 ppm</span>
+          </label>
+          <input type="range" id="sliderSulfeto" min="0" max="20" value="1" oninput="atualizar()">
         </div>
-        <div class="result-item">
-          <div class="value">20–30%</div>
-          <div class="label">Redução de perdas na lavoura</div>
+        <div class="slider-group">
+          <label>
+            🍂 Amônia (MQ-135)
+            <span class="val" id="valAmonia">20 ppm</span>
+          </label>
+          <input type="range" id="sliderAmonia" min="0" max="100" value="20" oninput="atualizar()">
         </div>
       </div>
     </div>
 
-    <div class="thanks-box">
-      <h2>💚 Agradecimentos</h2>
-      <p>
-        Projeto desenvolvido no contexto do <span class="highlight">Agrinho 2026</span>, com muito entusiasmo e terra nas mãos,
-        em <span class="highlight">Capanema-PR</span>, sudoeste do Paraná.<br><br>
-        Agradecemos a todos os agricultores que compartilharam suas histórias e dores — é por vocês e com vocês que esse projeto existe.
-      </p>
+    <div class="scenarios">
+      <h2>⚡ Cenários Rápidos</h2>
+      <p class="subtitle">Clique para carregar um cenário real de campo</p>
+      <div class="scenario-btns">
+        <button class="scenario-btn" onclick="loadScenario(50, 10, 1, 20)">
+          <div class="s-icon">🌱</div>
+          <div class="s-name">Solo Ideal</div>
+          <div class="s-desc">Umidade 50%, gases normais</div>
+        </button>
+        <button class="scenario-btn" onclick="loadScenario(10, 8, 1, 15)">
+          <div class="s-icon">🔥</div>
+          <div class="s-name">Seca Severa</div>
+          <div class="s-desc">Umidade 10%, estresse hídrico</div>
+        </button>
+        <button class="scenario-btn" onclick="loadScenario(90, 5, 1, 10)">
+          <div class="s-icon">🌊</div>
+          <div class="s-name">Solo Encharcado</div>
+          <div class="s-desc">Umidade 90%, risco de raízes</div>
+        </button>
+        <button class="scenario-btn" onclick="loadScenario(40, 50, 10, 15)">
+          <div class="s-icon">☠️</div>
+          <div class="s-name">Solo Doente</div>
+          <div class="s-desc">Metano e sulfeto elevados</div>
+        </button>
+        <button class="scenario-btn" onclick="loadScenario(45, 8, 1, 25)">
+          <div class="s-icon">⚠️</div>
+          <div class="s-name">Atenção</div>
+          <div class="s-desc">Amônia alta, matéria orgânica</div>
+        </button>
+        <button class="scenario-btn" onclick="loadScenario(60, 5, 0, 3)">
+          <div class="s-icon">✅</div>
+          <div class="s-name">Pós-chuva</div>
+          <div class="s-desc">Boa umidade, solo arejado</div>
+        </button>
+      </div>
     </div>
 
   </div>
@@ -260,5 +260,55 @@
     Feito com ❤️ em Capanema-PR &nbsp;|&nbsp; SoilSniff © 2026 – MIT License
   </footer>
 
+  <script>
+    function atualizar() {
+      const umidade = parseInt(document.getElementById('sliderUmidade').value);
+      const metano  = parseInt(document.getElementById('sliderMetano').value);
+      const sulfeto = parseInt(document.getElementById('sliderSulfeto').value);
+      const amonia  = parseInt(document.getElementById('sliderAmonia').value);
+
+      document.getElementById('valUmidade').textContent = umidade + '%';
+      document.getElementById('valMetano').textContent  = metano + ' ppm';
+      document.getElementById('valSulfeto').textContent = sulfeto + ' ppm';
+      document.getElementById('valAmonia').textContent  = amonia + ' ppm';
+
+      const led    = document.getElementById('ledCircle');
+      const label  = document.getElementById('ledLabel');
+      const action = document.getElementById('ledAction');
+
+      let status;
+      if (umidade < 20)                           status = 'vermelho';
+      else if (umidade > 80)                      status = 'vermelho';
+      else if (metano > 30 || sulfeto > 5)        status = 'vermelho';
+      else if (amonia > 5 && amonia < 50)         status = 'amarelo';
+      else                                        status = 'verde';
+
+      led.className    = 'led-circle ' + status;
+      label.className  = 'led-label ' + status;
+
+      if (status === 'verde') {
+        label.textContent  = '🟢 Solo Fértil e Saudável';
+        action.textContent = '→ Continuar manejo normal';
+      } else if (status === 'amarelo') {
+        label.textContent  = '🟡 Matéria Orgânica / Início de Estresse';
+        action.textContent = '→ Aplicar composto orgânico / monitorar irrigação';
+      } else {
+        if (umidade < 20)         action.textContent = '→ Irrigar urgentemente!';
+        else if (umidade > 80)    action.textContent = '→ Suspender irrigação, aeração necessária';
+        else                      action.textContent = '→ Solo doente, verificar drenagem';
+        label.textContent = '🔴 Solo em Estado Crítico';
+      }
+    }
+
+    function loadScenario(umidade, metano, sulfeto, amonia) {
+      document.getElementById('sliderUmidade').value = umidade;
+      document.getElementById('sliderMetano').value  = metano;
+      document.getElementById('sliderSulfeto').value = sulfeto;
+      document.getElementById('sliderAmonia').value  = amonia;
+      atualizar();
+    }
+
+    atualizar();
+  </script>
 </body>
 </html>
