@@ -30,6 +30,21 @@
     nav a { color: #a5d6a7; text-decoration: none; font-size: 0.9rem; padding: 0.3rem 0.6rem; border-radius: 4px; transition: background 0.2s; }
     nav a:hover { background: #1b3a1b; color: #81c784; }
 
+    .voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #81c784;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .voltar:hover { background: #1b3a1b; }
+
     .hero {
       background: linear-gradient(135deg, #0d2b0d 0%, #1a3a1a 50%, #0d2b0d 100%);
       padding: 4rem 2rem 3rem;
@@ -174,6 +189,10 @@
   </div>
 
   <div class="container">
+
+    <a href="../index.html" class="voltar">
+      <i class="fas fa-arrow-left"></i> Voltar para o início
+    </a>
 
     <div class="simulator">
       <h2>🔬 Simulador do SoilSniff</h2>
