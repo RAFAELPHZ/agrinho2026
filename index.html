@@ -1,173 +1,490 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoilSniff - Sensor de Cheiro do Solo para Milho</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/text.css">
-    <link rel="stylesheet" href="css/divs.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoilSniff - Sensor de Cheiro do Solo para Milho</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #0a1a0a;
+      color: #e8f5e8;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      background: rgba(10, 26, 10, 0.97);
+      border-bottom: 1px solid #2d5a2d;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #4caf50;
+      text-decoration: none;
+      margin-right: auto;
+    }
+    nav a {
+      color: #a5d6a7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background: #1b3a1b; color: #81c784; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d2b0d 0%, #1a3a1a 50%, #0d2b0d 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid #2d5a2d;
+    }
+    .hero-icon { font-size: 4.5rem; margin-bottom: 1rem; }
+    .hero h1 { font-size: 3rem; font-weight: 800; color: #4caf50; margin-bottom: 0.5rem; }
+    .hero .subtitle { font-size: 1.2rem; color: #a5d6a7; margin-bottom: 0.5rem; }
+    .hero .sub2 { font-size: 1rem; color: #81c784; opacity: 0.85; margin-bottom: 2rem; }
+    .badges { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; }
+    .badge {
+      background: #1b3a1b;
+      border: 1px solid #2d5a2d;
+      color: #a5d6a7;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    /* CONTAINER */
+    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+    /* SEÇÕES */
+    .section {
+      background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #81c784;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #2d5a2d;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section p { color: #c8e6c9; line-height: 1.7; font-size: 0.97rem; }
+    .section ul { margin: 1rem 0 1rem 1.5rem; color: #a5d6a7; line-height: 2; }
+
+    /* MISSÃO */
+    .mission-box {
+      background: #0d1f0d;
+      border-left: 4px solid #4caf50;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1.2rem;
+    }
+    .mission-box p:first-child { font-weight: 700; color: #81c784; margin-bottom: 0.4rem; }
+    .mission-box p:last-child { color: #a5d6a7; font-size: 0.95rem; }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .card {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-top: 3px solid #ef5350;
+      border-radius: 10px;
+      padding: 1.2rem;
+    }
+    .card h3 { color: #ef9a9a; font-size: 1rem; margin-bottom: 0.5rem; }
+    .card p { color: #a5d6a7; font-size: 0.88rem; line-height: 1.5; }
+
+    /* QUOTE */
+    .quote-box {
+      background: #0d1f0d;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-top: 1.2rem;
+      font-style: italic;
+      color: #c8e6c9;
+      border-left: 3px solid #4caf50;
+    }
+
+    /* LED TABLE */
+    .led-table { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.2rem; }
+    .led-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+    }
+    .led-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+    .led-dot.verde { background: #4caf50; box-shadow: 0 0 10px #4caf50; }
+    .led-dot.amarelo { background: #ffeb3b; box-shadow: 0 0 10px #ffeb3b; }
+    .led-dot.vermelho { background: #ef5350; box-shadow: 0 0 10px #ef5350; }
+    .led-item strong { color: #e8f5e8; }
+    .led-item small { color: #81c784; display: block; font-size: 0.82rem; margin-top: 0.2rem; }
+
+    /* TABELA HARDWARE */
+    .table-wrap { overflow-x: auto; margin-top: 1.2rem; border-radius: 8px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: #243f24; }
+    thead th { padding: 0.8rem 1rem; text-align: left; color: #81c784; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    tbody tr { border-bottom: 1px solid #1f3a1f; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #1f3a1f; }
+    tbody td { padding: 0.8rem 1rem; color: #c8e6c9; font-size: 0.92rem; }
+    tbody td:last-child { color: #4caf50; font-weight: 700; }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-left: 4px solid #ce93d8;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.2rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: #c8e6c9;
+      overflow-x: auto;
+    }
+    .kw { color: #ce93d8; font-weight: 700; }
+    .green { color: #4caf50; }
+    .red { color: #ef5350; font-weight: 700; }
+    .yellow { color: #ffeb3b; font-weight: 700; }
+    .blue { color: #29b6f6; }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .stat-card {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .stat-number { font-size: 1.8rem; font-weight: 800; color: #4caf50; }
+    .stat-card div:last-child { color: #a5d6a7; font-size: 0.85rem; margin-top: 0.3rem; }
+
+    /* DEMO */
+    .demo-panel {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 1.2rem;
+      text-align: center;
+    }
+    .demo-panel h3 { color: #81c784; margin-bottom: 1.5rem; }
+    .demo-led {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      transition: all 0.4s;
+    }
+    #demoStatus { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; color: #e8f5e8; }
+    .slider-container { margin-bottom: 1rem; text-align: left; }
+    .slider-container label { display: flex; justify-content: space-between; color: #a5d6a7; font-size: 0.9rem; margin-bottom: 0.4rem; }
+    input[type="range"] {
+      width: 100%; height: 6px; -webkit-appearance: none;
+      background: #243f24; border-radius: 3px; outline: none; cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 16px; height: 16px;
+      border-radius: 50%; background: #4caf50; cursor: pointer;
+    }
+
+    /* CONTRIBUIR */
+    .contrib-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .contrib-card {
+      background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-top: 3px solid #4caf50;
+      border-radius: 10px;
+      padding: 1.2rem;
+    }
+    .contrib-card h3 { color: #81c784; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .contrib-card p { color: #a5d6a7; font-size: 0.87rem; line-height: 1.5; }
+
+    .btns { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      background: #4caf50;
+      color: #0a1a0a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: #81c784; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: #4caf50;
+      border: 2px solid #4caf50;
+    }
+    .btn-outline:hover { background: #1b3a1b; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid #2d5a2d;
+      color: #5a8a5a;
+      font-size: 0.9rem;
+    }
+    footer .footer-icons { margin-top: 1rem; font-size: 1.4rem; display: flex; gap: 1rem; justify-content: center; }
+    footer .footer-icons i { color: #5a8a5a; transition: color 0.2s; cursor: pointer; }
+    footer .footer-icons i:hover { color: #4caf50; }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <h1>🌽 SoilSniff</h1>
-            <p>Sensor de "Cheiro" do Solo para Milho</p>
-            <p style="font-size: 1rem; opacity: 0.85;">Monitoramento precoce de estresse hídrico e saúde do solo via nariz eletrônico</p>
-            <div class="badges">
-                <span class="badge">📜 MIT License</span>
-                <span class="badge">⚙️ Protótipo Funcional</span>
-                <span class="badge">🔧 Arduino Uno</span>
-                <span class="badge">📍 Capanema-PR</span>
-            </div>
+
+  <nav>
+    <a class="nav-brand" href="index.html">🌽 SoilSniff</a>
+    <a href="/paginas/pagina1.html">🌾 Contexto</a>
+    <a href="/paginas/pagina2.html">⚠️ Problema</a>
+    <a href="/paginas/pagina3.html">💡 Solução</a>
+    <a href="/paginas/pagina4.html">🛠️ Hardware</a>
+    <a href="/paginas/pagina5.html">🧠 Algoritmo</a>
+    <a href="/paginas/pagina6.html">🎮 Demo</a>
+    <a href="/paginas/pagina7.html">🤝 Contribuir</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-icon">🌽</div>
+    <h1>SoilSniff</h1>
+    <p class="subtitle">Sensor de "Cheiro" do Solo para Milho</p>
+    <p class="sub2">Monitoramento precoce de estresse hídrico e saúde do solo via nariz eletrônico</p>
+    <div class="badges">
+      <span class="badge">📜 MIT License</span>
+      <span class="badge">⚙️ Protótipo Funcional</span>
+      <span class="badge">🔧 Arduino Uno</span>
+      <span class="badge">📍 Capanema-PR</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- CONTEXTO -->
+    <div class="section" id="contexto">
+      <h2><i class="fas fa-seedling"></i> Contexto e Motivação</h2>
+      <p><strong style="color:#81c784;">Capanema-PR, Abril de 2026</strong> – O sudoeste do Paraná enfrenta sua pior estiagem em uma década. As perdas na cultura do milho já ultrapassam <strong>R$ 69 milhões</strong> na região, com lavouras completamente comprometidas.</p>
+      <br>
+      <p>Agricultores familiares e produtores de médio porte não têm acesso a tecnologias caras de agricultura de precisão. Eles precisam de <strong>soluções simples, de baixo custo e que funcionem no campo real</strong>.</p>
+      <div class="mission-box">
+        <p>🎯 Missão</p>
+        <p>Democratizar o acesso ao diagnóstico do solo, reduzindo perdas na lavoura e aumentando a resiliência climática do pequeno produtor.</p>
+      </div>
+    </div>
+
+    <!-- PROBLEMA -->
+    <div class="section" id="problema">
+      <h2><i class="fas fa-exclamation-triangle"></i> O Problema</h2>
+      <div class="card-grid">
+        <div class="card"><h3>🌡️ Estiagem severa</h3><p>Planta não demonstra sede visível até que o dano seja irreversível.</p></div>
+        <div class="card"><h3>⏰ Diagnóstico tardio</h3><p>Quando o milho enrola as folhas, 30–50% da produtividade já foi perdida.</p></div>
+        <div class="card"><h3>🔬 Falta de laboratórios</h3><p>Análise química do solo leva semanas e custa caro.</p></div>
+        <div class="card"><h3>💸 Tecnologia inacessível</h3><p>Sensores de umidade profissionais custam mais de R$ 5.000.</p></div>
+      </div>
+      <div class="quote-box">
+        💭 <em>"E se o próprio solo pudesse falar, através do seu cheiro, que está ficando doente ou seco antes que a planta murche?"</em>
+      </div>
+    </div>
+
+    <!-- SOLUÇÃO -->
+    <div class="section" id="solucao">
+      <h2><i class="fas fa-microchip"></i> A Solução</h2>
+      <p><strong>SoilSniff</strong> é um <strong>nariz eletrônico</strong> de baixo custo que:</p>
+      <ul>
+        <li>É enterrado a 10–15 cm de profundidade, próximo às raízes do milho</li>
+        <li>Detecta <strong>compostos orgânicos voláteis (VOCs)</strong> liberados por micróbios e pela planta</li>
+        <li>Interpreta os gases através de um algoritmo simples</li>
+        <li>Mostra o resultado em um <strong>LED colorido</strong></li>
+      </ul>
+      <div class="led-table">
+        <div class="led-item"><div class="led-dot verde"></div><div><strong>Verde</strong> – Solo fértil e úmido<small>Continuar manejo normal</small></div></div>
+        <div class="led-item"><div class="led-dot amarelo"></div><div><strong>Amarelo</strong> – Matéria orgânica baixa ou início de estresse<small>Aplicar composto orgânico / Monitorar irrigação</small></div></div>
+        <div class="led-item"><div class="led-dot vermelho"></div><div><strong>Vermelho</strong> – Solo doente ou estresse hídrico severo<small>Irrigar urgentemente ou colher antecipadamente</small></div></div>
+      </div>
+    </div>
+
+    <!-- HARDWARE -->
+    <div class="section" id="hardware">
+      <h2><i class="fas fa-tools"></i> Hardware Utilizado</h2>
+      <p>Custo total do protótipo: <strong style="color:#4caf50;">~R$ 180</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Componente</th><th>Modelo</th><th>Função</th><th>Preço</th></tr></thead>
+          <tbody>
+            <tr><td>Microcontrolador</td><td>Arduino Nano</td><td>Processamento</td><td>R$ 40</td></tr>
+            <tr><td>Sensor de amônia</td><td>MQ-135</td><td>Detecta decomposição aeróbica</td><td>R$ 35</td></tr>
+            <tr><td>Sensor de metano</td><td>MQ-4</td><td>Detecta solo compactado</td><td>R$ 35</td></tr>
+            <tr><td>Sensor de sulfeto</td><td>MQ-136</td><td>Detecta putrefação/doença</td><td>R$ 45</td></tr>
+            <tr><td>Sensor de umidade</td><td>Higrômetro</td><td>Corrige leituras</td><td>R$ 15</td></tr>
+            <tr><td>Indicação</td><td>LED RGB</td><td>Feedback visual</td><td>R$ 5</td></tr>
+            <tr><td>Alimentação</td><td>Bateria 9V</td><td>Energia</td><td>R$ 10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ALGORITMO -->
+    <div class="section" id="algoritmo">
+      <h2><i class="fas fa-brain"></i> Algoritmo de Decisão</h2>
+      <div class="code-block">
+        <span class="blue">1.</span> Ler <span class="green">sensor_amonia</span> (MQ135)<br>
+        <span class="blue">2.</span> Ler <span class="green">sensor_metano</span> (MQ4)<br>
+        <span class="blue">3.</span> Ler <span class="green">sensor_sulfeto</span> (MQ136)<br>
+        <span class="blue">4.</span> Ler <span class="green">umidade_solo</span> (higrômetro)<br><br>
+        <span class="blue">5.</span> <span class="kw">Se</span> umidade_solo &lt; <span class="blue">20%</span>: → <span class="red">🔴 VERMELHO</span><br>
+        <span class="blue">6.</span> <span class="kw">Senão se</span> umidade_solo &gt; <span class="blue">80%</span>: → <span class="red">🔴 VERMELHO</span><br>
+        <span class="blue">7.</span> <span class="kw">Senão se</span> metano &gt; <span class="blue">30ppm</span> <span class="kw">OU</span> sulfeto &gt; <span class="blue">5ppm</span>: → <span class="red">🔴 VERMELHO</span><br>
+        <span class="blue">8.</span> <span class="kw">Senão se</span> amonia &gt; <span class="blue">5ppm</span> <span class="kw">E</span> amonia &lt; <span class="blue">50ppm</span>: → <span class="yellow">🟡 AMARELO</span><br>
+        <span class="blue">9.</span> <span class="kw">Senão</span>: → <span class="green">🟢 VERDE</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">20–60%</div><div>Umidade ideal</div></div>
+        <div class="stat-card"><div class="stat-number">5–50ppm</div><div>Amônia (atenção)</div></div>
+        <div class="stat-card"><div class="stat-number">&lt;30ppm</div><div>Metano seguro</div></div>
+        <div class="stat-card"><div class="stat-number">&lt;5ppm</div><div>Sulfeto seguro</div></div>
+      </div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="section" id="demo">
+      <h2><i class="fas fa-gamepad"></i> Simulação Interativa</h2>
+      <div class="demo-panel">
+        <h3>Ajuste os parâmetros e veja o diagnóstico</h3>
+        <div class="demo-led" id="demoLed" style="background:#4caf50; box-shadow:0 0 30px #4caf50;"></div>
+        <div id="demoStatus">🟢 Solo Fértil e Saudável</div>
+        <div class="slider-container">
+          <label>🌊 Umidade (%)<span id="umidadeValor">50%</span></label>
+          <input type="range" id="umidadeSlider" min="0" max="100" value="50" oninput="atualizar()">
         </div>
-    </div>
-
-    <div class="nav">
-        <a href="/paginas/pagina1.html">🌾 Contexto</a>
-        <a href="/paginas/pagina2.html">⚠️ Problema</a>
-        <a href="/paginas/pagina3.html">💡 Solução</a>
-        <a href="/paginas/pagina4.html">🛠️ Hardware</a>
-        <a href="/paginas/pagina5.html">🧠 Algoritmo</a>
-        <a href="/paginas/pagina6.html">🎮 Demo</a>
-        <a href="/paginas/pagina7.html">🤝 Contribuir</a>
-    </div>
-
-    <div class="container">
-        <section id="contexto" class="section">
-            <h2><i class="fas fa-seedling"></i> Contexto e Motivação</h2>
-            <p><strong>Capanema-PR, Abril de 2026</strong> – O sudoeste do Paraná enfrenta sua pior estiagem em uma década. As perdas na cultura do milho já ultrapassam <strong>R$ 69 milhões</strong> na região, com lavouras completamente comprometidas.</p>
-            <br>
-            <p>Agricultores familiares e produtores de médio porte não têm acesso a tecnologias caras de agricultura de precisão. Eles precisam de <strong>soluções simples, de baixo custo e que funcionem no campo real</strong>.</p>
-            <br>
-            <div class="stat-card" style="background: #e8f0e5; text-align: left;">
-                <p style="font-size: 1.2rem; font-weight: 600;">🎯 Missão</p>
-                <p>Democratizar o acesso ao diagnóstico do solo, reduzindo perdas na lavoura e aumentando a resiliência climática do pequeno produtor.</p>
-            </div>
-        </section>
-
-        <section id="problema" class="section">
-            <h2><i class="fas fa-exclamation-triangle"></i> O Problema</h2>
-            <div class="card-grid">
-                <div class="card"><h3>🌡️ Estiagem severa</h3><p>Planta não demonstra sede visível até que o dano seja irreversível.</p></div>
-                <div class="card"><h3>⏰ Diagnóstico tardio</h3><p>Quando o milho enrola as folhas, 30-50% da produtividade já foi perdida.</p></div>
-                <div class="card"><h3>🔬 Falta de laboratórios</h3><p>Análise química do solo leva semanas e custa caro.</p></div>
-                <div class="card"><h3>💸 Tecnologia inacessível</h3><p>Sensores de umidade profissionais custam mais de R$ 5.000.</p></div>
-            </div>
-            <div style="margin-top: 1.5rem; padding: 1rem; background: #e8f0e5; border-radius: 16px; font-style: italic;">
-                <p>💭 <em>"E se o próprio solo pudesse falar, através do seu cheiro, que está ficando doente ou seco antes que a planta murche?"</em></p>
-            </div>
-        </section>
-
-        <section id="solucao" class="section">
-            <h2><i class="fas fa-microchip"></i> A Solução</h2>
-            <p><strong>SoilSniff</strong> é um <strong>nariz eletrônico</strong> de baixo custo que:</p>
-            <ul style="margin: 1rem 0 1rem 2rem;">
-                <li>Enterrado a 10-15 cm de profundidade, próximo às raízes do milho</li>
-                <li>Detecta <strong>compostos orgânicos voláteis (VOCs)</strong> liberados por micróbios e pela própria planta</li>
-                <li>Interpreta o padrão desses gases através de um algoritmo simples</li>
-                <li>Mostra o resultado em um <strong>LED colorido</strong></li>
-            </ul>
-            <div class="led-table">
-                <div class="led-item"><div class="led-light verde"></div><div><strong>🟢 Verde</strong> – Solo fértil e úmido<br><small>Continuar manejo normal</small></div></div>
-                <div class="led-item"><div class="led-light amarelo"></div><div><strong>🟡 Amarelo</strong> – Matéria orgânica baixa ou início de estresse<br><small>Aplicar composto orgânico / Monitorar irrigação</small></div></div>
-                <div class="led-item"><div class="led-light vermelho"></div><div><strong>🔴 Vermelho</strong> – Solo doente ou estresse hídrico severo<br><small>Irrigar urgentemente ou colher antecipadamente</small></div></div>
-            </div>
-        </section>
-
-        <section id="hardware" class="section">
-            <h2><i class="fas fa-microchip"></i> Hardware Utilizado</h2>
-            <p><strong>Custo total do protótipo: ~R$ 180</strong></p>
-            <table class="hardware-table">
-                <thead><tr><th>Componente</th><th>Modelo</th><th>Função</th><th>Preço</th></tr></thead>
-                <tbody>
-                    <tr><td>Microcontrolador</td><td>Arduino Nano</td><td>Processamento</td><td>R$ 40</td></tr>
-                    <tr><td>Sensor de amônia</td><td>MQ-135</td><td>Detecta decomposição aeróbica</td><td>R$ 35</td></tr>
-                    <tr><td>Sensor de metano</td><td>MQ-4</td><td>Detecta solo compactado</td><td>R$ 35</td></tr>
-                    <tr><td>Sensor de sulfeto</td><td>MQ-136</td><td>Detecta putrefação/doença</td><td>R$ 45</td></tr>
-                    <tr><td>Sensor de umidade</td><td>Higrômetro</td><td>Corrige leituras</td><td>R$ 15</td></tr>
-                    <tr><td>Indicação</td><td>LED RGB</td><td>Feedback visual</td><td>R$ 5</td></tr>
-                    <tr><td>Alimentação</td><td>Bateria 9V</td><td>Energia</td><td>R$ 10</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="algoritmo" class="section">
-            <h2><i class="fas fa-brain"></i> Algoritmo de Decisão</h2>
-            <div class="code-block">
-                <pre style="margin:0; color:#e2e8f0;">
-1. Ler sensor_amonia (MQ135)
-2. Ler sensor_metano (MQ4)
-3. Ler sensor_sulfeto (MQ136)
-4. Ler umidade_solo (higrômetro)
-
-5. Se umidade_solo < 20%:       → 🔴 VERMELHO
-6. Senão se umidade_solo > 80%: → 🔴 VERMELHO
-7. Senão se metano > 30ppm OU sulfeto > 5ppm: → 🔴 VERMELHO
-8. Senão se amonia > 5ppm E amonia < 50ppm:   → 🟡 AMARELO
-9. Senão: → 🟢 VERDE
-                </pre>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-card"><div class="stat-number">20-60%</div><div>Umidade ideal</div></div>
-                <div class="stat-card"><div class="stat-number">5-50ppm</div><div>Amônia (atenção)</div></div>
-                <div class="stat-card"><div class="stat-number">&lt;30ppm</div><div>Metano seguro</div></div>
-                <div class="stat-card"><div class="stat-number">&lt;5ppm</div><div>Sulfeto seguro</div></div>
-            </div>
-        </section>
-
-        <section id="demo" class="section">
-            <h2><i class="fas fa-gamepad"></i> Simulação Interativa</h2>
-            <div class="demo-panel">
-                <h3 style="color:white;">Ajuste os parâmetros e veja o diagnóstico</h3>
-                <div class="demo-led" id="demoLed" style="background-color: #22c55e;"></div>
-                <div id="demoStatus" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">🟢 Solo Fértil e Saudável</div>
-                <div class="slider-container"><label>🌊 Umidade (%): <span id="umidadeValor">50</span>%</label><input type="range" id="umidadeSlider" min="0" max="100" value="50"></div>
-                <div class="slider-container"><label>💨 Metano (ppm): <span id="metanoValor">10</span> ppm</label><input type="range" id="metanoSlider" min="0" max="50" value="10"></div>
-                <div class="slider-container"><label>⚠️ Sulfeto (ppm): <span id="sulfetoValor">1</span> ppm</label><input type="range" id="sulfetoSlider" min="0" max="15" value="1"></div>
-                <div class="slider-container"><label>🍂 Amônia (ppm): <span id="amoniaValor">20</span> ppm</label><input type="range" id="amoniaSlider" min="0" max="100" value="20"></div>
-                <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Baseado no algoritmo do SoilSniff</p>
-            </div>
-        </section>
-
-        <section id="contribuir" class="section">
-            <h2><i class="fas fa-hand-peace"></i> Como Contribuir</h2>
-            <p>Este é um projeto <strong>open-source e open-hardware</strong>. Toda ajuda é bem-vinda!</p>
-            <div class="card-grid">
-                <div class="card"><h3>🧪 Dados de campo</h3><p>Enviar amostras de solo ou padrões de leitura da sua região.</p></div>
-                <div class="card"><h3>💻 Código</h3><p>Melhorar o algoritmo, adicionar sensores, otimizar consumo.</p></div>
-                <div class="card"><h3>🔧 Hardware</h3><p>Sugerir componentes mais baratos ou projetos de PCB.</p></div>
-                <div class="card"><h3>📝 Documentação</h3><p>Traduzir para outros idiomas, criar tutoriais em vídeo.</p></div>
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <a href="#" class="btn"><i class="fab fa-github"></i> Ver no GitHub</a>
-                <a href="#" class="btn" style="background: #4a7c59; margin-left: 0.5rem;"><i class="fas fa-code-branch"></i> Fork do Projeto</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2><i class="fas fa-chart-line"></i> Resultados Esperados</h2>
-            <div class="stats-grid">
-                <div class="stat-card"><div class="stat-number">85%</div><div>Acurácia na detecção</div></div>
-                <div class="stat-card"><div class="stat-number">&lt;2min</div><div>Tempo de resposta</div></div>
-                <div class="stat-card"><div class="stat-number">R$100</div><div>Custo final (lote)</div></div>
-                <div class="stat-card"><div class="stat-number">20-30%</div><div>Redução de perdas</div></div>
-            </div>
-        </section>
-    </div>
-
-    <div class="footer">
-        <p>Feito com ❤️ e terra nas mãos em Capanema-PR, Sudoeste do Paraná.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">SoilSniff © 2026 – MIT License</p>
-        <div style="margin-top: 1rem;">
-            <i class="fab fa-github" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
-            <i class="fab fa-twitter" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
-            <i class="fab fa-linkedin" style="font-size: 1.5rem; margin: 0 0.5rem;"></i>
+        <div class="slider-container">
+          <label>💨 Metano (ppm)<span id="metanoValor">10 ppm</span></label>
+          <input type="range" id="metanoSlider" min="0" max="50" value="10" oninput="atualizar()">
         </div>
+        <div class="slider-container">
+          <label>⚠️ Sulfeto (ppm)<span id="sulfetoValor">1 ppm</span></label>
+          <input type="range" id="sulfetoSlider" min="0" max="15" value="1" oninput="atualizar()">
+        </div>
+        <div class="slider-container">
+          <label>🍂 Amônia (ppm)<span id="amoniaValor">20 ppm</span></label>
+          <input type="range" id="amoniaSlider" min="0" max="100" value="20" oninput="atualizar()">
+        </div>
+        <p style="margin-top:1rem; font-size:0.8rem; color:#5a8a5a;">Baseado no algoritmo do SoilSniff</p>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- CONTRIBUIR -->
+    <div class="section" id="contribuir">
+      <h2><i class="fas fa-hand-peace"></i> Como Contribuir</h2>
+      <p>Este é um projeto <strong>open-source e open-hardware</strong>. Toda ajuda é bem-vinda!</p>
+      <div class="contrib-grid">
+        <div class="contrib-card"><h3>🧪 Dados de campo</h3><p>Enviar amostras de solo ou padrões de leitura da sua região.</p></div>
+        <div class="contrib-card"><h3>💻 Código</h3><p>Melhorar o algoritmo, adicionar sensores, otimizar consumo.</p></div>
+        <div class="contrib-card"><h3>🔧 Hardware</h3><p>Sugerir componentes mais baratos ou projetos de PCB.</p></div>
+        <div class="contrib-card"><h3>📝 Documentação</h3><p>Traduzir para outros idiomas, criar tutoriais em vídeo.</p></div>
+      </div>
+      <div class="btns">
+        <a href="https://github.com/RAFAELPHZ/agrinho2026" target="_blank" class="btn"><i class="fab fa-github"></i> Ver no GitHub</a>
+        <a href="https://github.com/RAFAELPHZ/agrinho2026/fork" target="_blank" class="btn btn-outline"><i class="fas fa-code-branch"></i> Fork do Projeto</a>
+      </div>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="section">
+      <h2><i class="fas fa-chart-line"></i> Resultados Esperados</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">85%</div><div>Acurácia na detecção</div></div>
+        <div class="stat-card"><div class="stat-number">&lt;2min</div><div>Tempo de resposta</div></div>
+        <div class="stat-card"><div class="stat-number">R$100</div><div>Custo final (lote)</div></div>
+        <div class="stat-card"><div class="stat-number">20–30%</div><div>Redução de perdas</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Feito com ❤️ e terra nas mãos em Capanema-PR, Sudoeste do Paraná.</p>
+    <p style="margin-top:0.4rem; font-size:0.8rem;">SoilSniff © 2026 – MIT License</p>
+    <div class="footer-icons">
+      <i class="fab fa-github"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-linkedin"></i>
+    </div>
+  </footer>
+
+  <script>
+    function atualizar() {
+      const umidade = parseInt(document.getElementById('umidadeSlider').value);
+      const metano  = parseInt(document.getElementById('metanoSlider').value);
+      const sulfeto = parseInt(document.getElementById('sulfetoSlider').value);
+      const amonia  = parseInt(document.getElementById('amoniaSlider').value);
+
+      document.getElementById('umidadeValor').textContent = umidade + '%';
+      document.getElementById('metanoValor').textContent  = metano + ' ppm';
+      document.getElementById('sulfetoValor').textContent = sulfeto + ' ppm';
+      document.getElementById('amoniaValor').textContent  = amonia + ' ppm';
+
+      const led    = document.getElementById('demoLed');
+      const status = document.getElementById('demoStatus');
+
+      let cor, sombra, texto;
+      if (umidade < 20 || umidade > 80 || metano > 30 || sulfeto > 5) {
+        cor = '#ef5350'; sombra = '#ef5350'; texto = '🔴 Solo em Estado Crítico';
+      } else if (amonia > 5 && amonia < 50) {
+        cor = '#ffeb3b'; sombra = '#ffeb3b'; texto = '🟡 Matéria Orgânica / Início de Estresse';
+      } else {
+        cor = '#4caf50'; sombra = '#4caf50'; texto = '🟢 Solo Fértil e Saudável';
+      }
+
+      led.style.background  = cor;
+      led.style.boxShadow   = '0 0 30px ' + sombra;
+      status.textContent    = texto;
+    }
+    atualizar();
+  </script>
 </body>
 </html>
