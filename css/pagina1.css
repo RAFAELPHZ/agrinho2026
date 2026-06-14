@@ -1,0 +1,156 @@
+body.page-pagina1 nav {
+  background: rgba(10, 26, 10, 0.97);
+      border-bottom: 1px solid #2d5a2d;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+}
+
+body.page-pagina1 .section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+}
+
+body.page-pagina1 .section h2 {
+  font-size: 1.4rem;
+      font-weight: 700;
+      color: #81c784;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #2d5a2d;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+}
+
+body.page-pagina1 .section p {
+  color: #c8e6c9; line-height: 1.7; font-size: 0.97rem;
+}
+
+body.page-pagina1 .stat-card {
+  background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+}
+
+body.page-pagina1 .stat-number {
+  font-size: 1.8rem; font-weight: 800; color: #4caf50;
+}
+
+body.page-pagina1 .stat-card div:last-child {
+  color: #a5d6a7; font-size: 0.85rem; margin-top: 0.3rem;
+}
+
+body.page-pagina1 footer {
+  text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid #2d5a2d;
+      color: #5a8a5a;
+      font-size: 0.9rem;
+}
+
+body.page-pagina1 .nav-brand {
+  font-size: 1.3rem; font-weight: 800; color: #4caf50; text-decoration: none; margin-right: auto;
+}
+
+body.page-pagina1 .hero h1 {
+  font-size: 2.5rem; font-weight: 800; color: #4caf50; margin-bottom: 0.5rem;
+}
+
+body.page-pagina1 .manchete {
+  font-size: 1.15rem;
+      font-weight: 700;
+      color: #81c784;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+}
+
+body.page-pagina1 .stats-grid {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+}
+
+body.page-pagina1 .problema-grid {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+}
+
+body.page-pagina1 .problema-item {
+  background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-top: 3px solid #ef5350;
+      border-radius: 10px;
+      padding: 1.2rem;
+}
+
+body.page-pagina1 .problema-item h4 {
+  color: #ef9a9a; font-size: 0.95rem; margin-bottom: 0.4rem;
+}
+
+body.page-pagina1 .problema-item p {
+  color: #a5d6a7; font-size: 0.88rem; line-height: 1.5;
+}
+
+body.page-pagina1 .citacao {
+  background: #0d1f0d;
+      border-left: 4px solid #4caf50;
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: #c8e6c9;
+      font-size: 1.02rem;
+      line-height: 1.6;
+}
+
+body.page-pagina1 .citacao span {
+  display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-size: 0.83rem;
+      color: #81c784;
+      font-weight: 600;
+}
+
+body.page-pagina1 .btn {
+  display: inline-block;
+      background: #4caf50;
+      color: #0a1a0a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1rem;
+}
+
+body.page-pagina1 .btn:hover {
+  background: #81c784; transform: translateY(-2px);
+}
+
+body.page-pagina1 .footer-icons {
+  margin-top: 1rem; font-size: 1.4rem; display: flex; gap: 1rem; justify-content: center;
+}
+
+body.page-pagina1 .footer-icons i {
+  color: #5a8a5a; transition: color 0.2s; cursor: pointer;
+}
+
+body.page-pagina1 .footer-icons i:hover {
+  color: #4caf50;
+}

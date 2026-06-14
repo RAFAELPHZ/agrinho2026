@@ -4,160 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoilSniff - Hardware</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a1a0a;
-      color: #e8f5e8;
-      min-height: 100vh;
-    }
-
-    nav {
-      background: rgba(10, 26, 10, 0.95);
-      border-bottom: 1px solid #2d5a2d;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .nav-brand { font-size: 1.3rem; font-weight: 700; color: #4caf50; text-decoration: none; margin-right: auto; }
-    nav a { color: #a5d6a7; text-decoration: none; font-size: 0.9rem; padding: 0.3rem 0.6rem; border-radius: 4px; transition: background 0.2s; }
-    nav a:hover { background: #1b3a1b; color: #81c784; }
-
-    .voltar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #81c784;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .voltar:hover { background: #1b3a1b; }
-
-    .hero {
-      background: linear-gradient(135deg, #0d2b0d 0%, #1a3a1a 50%, #0d2b0d 100%);
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-      border-bottom: 1px solid #2d5a2d;
-    }
-    .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #29b6f6; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.1rem; color: #a5d6a7; max-width: 600px; margin: 0 auto; }
-
-    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-
-    .custo-badge {
-      display: inline-block;
-      background: #4caf50;
-      color: #0a1a0a;
-      font-weight: 800;
-      font-size: 1.1rem;
-      padding: 0.5rem 1.5rem;
-      border-radius: 20px;
-      margin-bottom: 2.5rem;
-    }
-
-    /* TABELA */
-    .table-wrap {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 3rem;
-    }
-    table { width: 100%; border-collapse: collapse; }
-    thead { background: #243f24; }
-    thead th { padding: 1rem; text-align: left; color: #81c784; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    tbody tr { border-bottom: 1px solid #1f3a1f; transition: background 0.2s; }
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: #1f3a1f; }
-    tbody td { padding: 1rem; color: #c8e6c9; font-size: 0.95rem; }
-    tbody td:last-child { color: #4caf50; font-weight: 700; }
-    .component-name { color: #e8f5e8; font-weight: 600; }
-    .model-badge {
-      background: #243f24;
-      color: #81c784;
-      font-size: 0.8rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-family: monospace;
-    }
-
-    /* PINOS */
-    .pinos-section {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    .pinos-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem; }
-    .pino-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem; }
-    .pino-row {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: #0d1f0d;
-      border-radius: 6px;
-      padding: 0.6rem 1rem;
-      font-size: 0.9rem;
-    }
-    .pino-tag {
-      background: #29b6f6;
-      color: #0a1a0a;
-      font-weight: 700;
-      font-size: 0.8rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      min-width: 36px;
-      text-align: center;
-      font-family: monospace;
-    }
-    .pino-desc { color: #a5d6a7; }
-
-    /* ENCAPSULAMENTO */
-    .encap-section {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    .encap-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem; }
-    .encap-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .encap-list li { display: flex; gap: 0.8rem; align-items: flex-start; color: #a5d6a7; font-size: 0.95rem; line-height: 1.5; }
-    .encap-list li::before { content: "🔩"; flex-shrink: 0; }
-
-    .note-box {
-      background: #1f2a0a;
-      border-left: 3px solid #ffd54f;
-      border-radius: 6px;
-      padding: 1rem 1.2rem;
-      color: #fff9c4;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid #2d5a2d;
-      color: #5a8a5a;
-      font-size: 0.9rem;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="page-pagina4">
 
   <nav>
     <a class="nav-brand" href="../index.html">🌽 SoilSniff</a>
@@ -266,6 +117,13 @@
         <li>Eletrônica protegida contra umidade com silicone ou verniz acrílico</li>
         <li>Enterrado a 10–15 cm de profundidade, próximo às raízes do milho</li>
       </ul>
+    </div>
+
+    <!-- IMAGEM PROTÓTIPO -->
+    <div class="proto-section">
+      <h2>🖼️ Imagem do Protótipo</h2>
+      <img class="proto-img" src="../img/prototipo.png" alt="Protótipo do SoilSniff" />
+      <p class="proto-caption">Fonte: Imagem gerada por IA</p>
     </div>
 
     <div class="note-box">

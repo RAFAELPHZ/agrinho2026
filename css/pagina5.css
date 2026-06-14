@@ -1,0 +1,220 @@
+body.page-pagina5 .hero h1 {
+  font-size: 2.5rem; font-weight: 800; color: #ce93d8; margin-bottom: 0.5rem;
+}
+
+body.page-pagina5 .code-block {
+  background: #0d1f0d;
+      border: 1px solid #2d5a2d;
+      border-left: 4px solid #ce93d8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      line-height: 2;
+      overflow-x: auto;
+}
+
+body.page-pagina5 .code-block .keyword {
+  color: #ce93d8; font-weight: 700;
+}
+
+body.page-pagina5 .code-block .comment {
+  color: #5a8a5a; font-style: italic;
+}
+
+body.page-pagina5 .code-block .string-green {
+  color: #4caf50; font-weight: 700;
+}
+
+body.page-pagina5 .code-block .string-yellow {
+  color: #ffeb3b; font-weight: 700;
+}
+
+body.page-pagina5 .code-block .string-red {
+  color: #ef5350; font-weight: 700;
+}
+
+body.page-pagina5 .code-block .number {
+  color: #29b6f6;
+}
+
+body.page-pagina5 .flow-section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina5 .flow-section h2 {
+  color: #81c784; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem;
+}
+
+body.page-pagina5 .flow-chart {
+  display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+}
+
+body.page-pagina5 .flow-box {
+  padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      max-width: 360px;
+      width: 100%;
+}
+
+body.page-pagina5 .flow-start {
+  background: #243f24; border: 2px solid #4caf50; color: #81c784; border-radius: 30px;
+}
+
+body.page-pagina5 .flow-read {
+  background: #1a2a3a; border: 2px solid #29b6f6; color: #81d4fa;
+}
+
+body.page-pagina5 .flow-decision {
+  background: #2a2a0a;
+      border: 2px solid #ffd54f;
+      color: #fff9c4;
+      transform: rotate(0deg);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      padding: 1.5rem 2.5rem;
+      max-width: 300px;
+}
+
+body.page-pagina5 .flow-result-green {
+  background: #1b3a1b; border: 2px solid #4caf50; color: #81c784; border-radius: 30px;
+}
+
+body.page-pagina5 .flow-result-yellow {
+  background: #2a2a0a; border: 2px solid #ffeb3b; color: #fff59d; border-radius: 30px;
+}
+
+body.page-pagina5 .flow-result-red {
+  background: #2a0a0a; border: 2px solid #ef5350; color: #ef9a9a; border-radius: 30px;
+}
+
+body.page-pagina5 .flow-arrow {
+  color: #5a8a5a;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin: 0.2rem 0;
+}
+
+body.page-pagina5 .thresholds {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina5 .threshold-card {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+}
+
+body.page-pagina5 .threshold-card .value {
+  font-size: 1.6rem; font-weight: 800; color: #29b6f6; font-family: monospace;
+}
+
+body.page-pagina5 .threshold-card .sensor {
+  color: #81c784; font-size: 0.9rem; margin: 0.3rem 0;
+}
+
+body.page-pagina5 .threshold-card .desc {
+  color: #a5d6a7; font-size: 0.82rem;
+}
+
+body.page-pagina5 .arduino-section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina5 .arduino-section h2 {
+  color: #81c784; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem;
+}
+
+body.page-pagina5 pre {
+  background: #0d1f0d;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #c8e6c9;
+}
+
+body.page-pagina5 .kw {
+  color: #ce93d8;
+}
+
+body.page-pagina5 .cm {
+  color: #5a8a5a; font-style: italic;
+}
+
+body.page-pagina5 .nm {
+  color: #29b6f6;
+}
+
+body.page-pagina5 .st {
+  color: #81c784;
+}
+
+body.page-pagina5 .tinkercad-section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina5 .tinkercad-section h2 {
+  color: #81c784; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem;
+}
+
+body.page-pagina5 .tinkercad-section p {
+  color: #a5d6a7; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;
+}
+
+body.page-pagina5 .tinkercad-badge {
+  display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0d1f0d;
+      border: 1px solid #29b6f6;
+      border-radius: 8px;
+      padding: 0.7rem 1.4rem;
+      color: #81d4fa;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+}
+
+body.page-pagina5 .tinkercad-badge:hover {
+  background: #1a2a3a; transform: translateY(-2px);
+}
+
+body.page-pagina5 .pending-note {
+  display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      background: #1f2a0a;
+      border-left: 3px solid #ffd54f;
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      color: #fff9c4;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+}

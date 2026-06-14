@@ -1,0 +1,27 @@
+.text-center {
+    text-align: center;
+}
+
+.text-highlight {
+    background: linear-gradient(120deg, #e8f0e5 0%, #e8f0e5 40%, transparent 60%);
+    padding: 0 0.3rem;
+    font-weight: 600;
+}
+
+.small-caps {
+    font-variant: small-caps;
+    letter-spacing: 0.5px;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #5a6e4d;
+}
+
+.lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+}

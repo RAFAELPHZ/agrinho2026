@@ -1,0 +1,187 @@
+body.page-pagina7 .hero h1 {
+  font-size: 2.5rem; font-weight: 800; color: #f48fb1; margin-bottom: 0.5rem;
+}
+
+body.page-pagina7 .intro-box {
+  background: #1a2a1a;
+      border-left: 4px solid #f48fb1;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #c8e6c9;
+}
+
+body.page-pagina7 .intro-box strong {
+  color: #f48fb1;
+}
+
+body.page-pagina7 .contrib-grid {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina7 .contrib-card {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-top: 3px solid #4caf50;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+}
+
+body.page-pagina7 .contrib-card:hover {
+  transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+}
+
+body.page-pagina7 .contrib-card .icon {
+  font-size: 2.2rem; margin-bottom: 0.8rem;
+}
+
+body.page-pagina7 .contrib-card h3 {
+  color: #81c784; font-size: 1.05rem; margin-bottom: 0.5rem;
+}
+
+body.page-pagina7 .contrib-card p {
+  color: #a5d6a7; font-size: 0.9rem; line-height: 1.6;
+}
+
+body.page-pagina7 .github-section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+}
+
+body.page-pagina7 .github-section h2 {
+  color: #81c784; font-size: 1.3rem; margin-bottom: 1rem;
+}
+
+body.page-pagina7 .github-section p {
+  color: #a5d6a7; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;
+}
+
+body.page-pagina7 .btn-github {
+  display: inline-block;
+      background: #4caf50;
+      color: #0a1a0a;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      margin: 0.3rem;
+}
+
+body.page-pagina7 .btn-github:hover {
+  background: #81c784; transform: translateY(-2px);
+}
+
+body.page-pagina7 .btn-fork {
+  display: inline-block;
+      background: transparent;
+      color: #4caf50;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid #4caf50;
+      transition: all 0.2s;
+      margin: 0.3rem;
+}
+
+body.page-pagina7 .btn-fork:hover {
+  background: #1b3a1b; transform: translateY(-2px);
+}
+
+body.page-pagina7 .results-section {
+  background: #1a2a1a;
+      border: 1px solid #2d5a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina7 .results-section h2 {
+  color: #81c784; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem;
+}
+
+body.page-pagina7 .results-grid {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+}
+
+body.page-pagina7 .result-item .value {
+  font-size: 2rem; font-weight: 800; color: #4caf50;
+}
+
+body.page-pagina7 .result-item .label {
+  font-size: 0.85rem; color: #a5d6a7; margin-top: 0.3rem; line-height: 1.4;
+}
+
+body.page-pagina7 .thanks-box {
+  background: linear-gradient(135deg, #1a2a1a, #0d1f0d);
+      border: 1px solid #4caf50;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+}
+
+body.page-pagina7 .thanks-box h2 {
+  color: #81c784; margin-bottom: 1rem; font-size: 1.3rem;
+}
+
+body.page-pagina7 .thanks-box p {
+  color: #a5d6a7; font-size: 0.95rem; line-height: 1.7;
+}
+
+body.page-pagina7 .thanks-box .highlight {
+  color: #4caf50; font-weight: 700;
+}
+
+body.page-pagina7 .milho-section {
+  margin-bottom: 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+}
+
+body.page-pagina7 .milho-img {
+  width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      border: 1px solid #2d5a2d;
+      display: block;
+}
+
+body.page-pagina7 .milho-overlay {
+  position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,26,10,0.85));
+      padding: 1.5rem 1.5rem 1rem;
+      border-radius: 0 0 12px 12px;
+}
+
+body.page-pagina7 .milho-overlay p {
+  color: #c8e6c9;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+}
+
+body.page-pagina7 .milho-overlay small {
+  color: #81c784; font-size: 0.82rem; font-weight: 400;
+}

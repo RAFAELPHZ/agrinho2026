@@ -4,177 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoilSniff - Algoritmo</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a1a0a;
-      color: #e8f5e8;
-      min-height: 100vh;
-    }
-
-    nav {
-      background: rgba(10, 26, 10, 0.95);
-      border-bottom: 1px solid #2d5a2d;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .nav-brand { font-size: 1.3rem; font-weight: 700; color: #4caf50; text-decoration: none; margin-right: auto; }
-    nav a { color: #a5d6a7; text-decoration: none; font-size: 0.9rem; padding: 0.3rem 0.6rem; border-radius: 4px; transition: background 0.2s; }
-    nav a:hover { background: #1b3a1b; color: #81c784; }
-
-    .voltar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #81c784;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .voltar:hover { background: #1b3a1b; }
-
-    .hero {
-      background: linear-gradient(135deg, #0d2b0d 0%, #1a3a1a 50%, #0d2b0d 100%);
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-      border-bottom: 1px solid #2d5a2d;
-    }
-    .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; color: #ce93d8; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.1rem; color: #a5d6a7; max-width: 600px; margin: 0 auto; }
-
-    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-
-    /* PSEUDOCÓDIGO */
-    .code-block {
-      background: #0d1f0d;
-      border: 1px solid #2d5a2d;
-      border-left: 4px solid #ce93d8;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95rem;
-      line-height: 2;
-      overflow-x: auto;
-    }
-    .code-block .keyword { color: #ce93d8; font-weight: 700; }
-    .code-block .comment { color: #5a8a5a; font-style: italic; }
-    .code-block .string-green { color: #4caf50; font-weight: 700; }
-    .code-block .string-yellow { color: #ffeb3b; font-weight: 700; }
-    .code-block .string-red { color: #ef5350; font-weight: 700; }
-    .code-block .number { color: #29b6f6; }
-
-    /* FLUXOGRAMA VISUAL */
-    .flow-section {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    .flow-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem; }
-
-    .flow-chart {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-    .flow-box {
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-      max-width: 360px;
-      width: 100%;
-    }
-    .flow-start { background: #243f24; border: 2px solid #4caf50; color: #81c784; border-radius: 30px; }
-    .flow-read { background: #1a2a3a; border: 2px solid #29b6f6; color: #81d4fa; }
-    .flow-decision {
-      background: #2a2a0a;
-      border: 2px solid #ffd54f;
-      color: #fff9c4;
-      transform: rotate(0deg);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      padding: 1.5rem 2.5rem;
-      max-width: 300px;
-    }
-    .flow-result-green { background: #1b3a1b; border: 2px solid #4caf50; color: #81c784; border-radius: 30px; }
-    .flow-result-yellow { background: #2a2a0a; border: 2px solid #ffeb3b; color: #fff59d; border-radius: 30px; }
-    .flow-result-red { background: #2a0a0a; border: 2px solid #ef5350; color: #ef9a9a; border-radius: 30px; }
-
-    .flow-arrow {
-      color: #5a8a5a;
-      font-size: 1.5rem;
-      line-height: 1;
-      margin: 0.2rem 0;
-    }
-
-    /* THRESHOLDS */
-    .thresholds {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-    .threshold-card {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 1.2rem;
-      text-align: center;
-    }
-    .threshold-card .value { font-size: 1.6rem; font-weight: 800; color: #29b6f6; font-family: monospace; }
-    .threshold-card .sensor { color: #81c784; font-size: 0.9rem; margin: 0.3rem 0; }
-    .threshold-card .desc { color: #a5d6a7; font-size: 0.82rem; }
-
-    /* CÓDIGO ARDUINO */
-    .arduino-section {
-      background: #1a2a1a;
-      border: 1px solid #2d5a2d;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    .arduino-section h2 { color: #81c784; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #2d5a2d; padding-bottom: 0.5rem; }
-    pre {
-      background: #0d1f0d;
-      border-radius: 8px;
-      padding: 1.5rem;
-      overflow-x: auto;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: #c8e6c9;
-    }
-    .kw { color: #ce93d8; }
-    .cm { color: #5a8a5a; font-style: italic; }
-    .nm { color: #29b6f6; }
-    .st { color: #81c784; }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid #2d5a2d;
-      color: #5a8a5a;
-      font-size: 0.9rem;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="page-pagina5">
 
   <nav>
     <a class="nav-brand" href="../index.html">🌽 SoilSniff</a>
@@ -268,6 +102,25 @@
   <span class="cm">// Solo fértil e saudável</span>
   <span class="kw">return</span> <span class="nm">0</span>;
 }</pre>
+    </div>
+
+    <!-- TINKERCAD -->
+    <div class="tinkercad-section">
+      <h2><i class="fas fa-drafting-compass"></i> Simulação no Tinkercad</h2>
+      <p>
+        O <strong>Tinkercad</strong> é uma plataforma online que permite simular circuitos eletrônicos com Arduino diretamente no navegador — é a ferramenta ideal para visualizar e testar o hardware do SoilSniff antes de montar o protótipo físico.
+      </p>
+      <a
+        class="tinkercad-badge"
+        href="https://www.tinkercad.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fas fa-external-link-alt"></i> Acessar o Tinkercad
+      </a>
+      <div class="pending-note">
+        ⚠️ <span><strong>Atenção:</strong> O modelo do circuito SoilSniff <strong>ainda não está disponível</strong> no Tinkercad. A simulação completa com todos os sensores (MQ-135, MQ-4, MQ-136 e higrômetro) será publicada futuramente no repositório do projeto.</span>
+      </div>
     </div>
 
   </div>
