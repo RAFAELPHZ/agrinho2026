@@ -52,6 +52,30 @@
       padding: 5rem 2rem 4rem;
       text-align: center;
       border-bottom: 1px solid #2d5a2d;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-index.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.22;
+      z-index: 0;
+    }
+    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+    .ia-badge {
+      display: inline-block;
+      background: rgba(76,175,80,0.15);
+      border: 1px solid #4caf50;
+      color: #81c784;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
     }
     .hero-icon { font-size: 4.5rem; margin-bottom: 1rem; }
     .hero h1 { font-size: 3rem; font-weight: 800; color: #4caf50; margin-bottom: 0.5rem; }
@@ -291,6 +315,8 @@
 
   <!-- HERO -->
   <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="ia-badge">✨ Imagens geradas por IA</div>
     <div class="hero-icon">🌽</div>
     <h1>SoilSniff</h1>
     <p class="subtitle">Sensor de "Cheiro" do Solo para Milho</p>
